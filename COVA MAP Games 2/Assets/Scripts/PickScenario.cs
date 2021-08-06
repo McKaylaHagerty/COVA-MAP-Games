@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PickScenario : MonoBehaviour
 {
     public TextAsset csv;
-    public List<string> ScenarioList = new List<string>{"1","2","3","4","5"};
     
     private int index;
 
@@ -17,12 +16,11 @@ public class PickScenario : MonoBehaviour
     {
 
         Load(csv);
-
-        index = Random.Range(0, ScenarioList.Count - 1);
-        DontDestroy.ScenarioChoice = ScenarioList[index];
+		
+        index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);
+        DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
         Debug.Log(DontDestroy.ScenarioChoice);
-
 
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).head);
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).eyes);
@@ -34,10 +32,6 @@ public class PickScenario : MonoBehaviour
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).feet);
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).accessories);
 
-        // foreach( var x in CorrectList) 
-		// {
- 		// 	Debug.Log( x.ToString());
-	    // }
 
         //Save about game info
         DontDestroy.AboutGameText = Find_id(DontDestroy.ScenarioChoice).about;
@@ -102,6 +96,10 @@ public class PickScenario : MonoBehaviour
 			row.bottom = grid[i][11];
 			row.feet = grid[i][12];
 			row.accessories = grid[i][13];
+
+			//Create the scenerio list to choose randomly from the 
+			//available scenarios from the CSV rows.
+			DontDestroy.ScenarioList.Add(row.id);
 
 			rowList.Add(row);
 		}
