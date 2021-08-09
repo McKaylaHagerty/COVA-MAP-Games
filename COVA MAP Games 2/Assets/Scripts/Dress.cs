@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Dress the COVA Map character based on the active images in the grid.  
+
 public class Dress : MonoBehaviour
 {
     public GameObject[] dress;

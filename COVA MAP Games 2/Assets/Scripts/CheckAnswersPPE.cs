@@ -10,19 +10,24 @@ public class CheckAnswersPPE: MonoBehaviour
 
     public DestroyAllChildren DestroyAllChildrenScript;
 
-     public GameObject CorrectIncorrectPrefab;
-    // public GameObject IncorrectPrefab;
+    public GameObject CorrectIncorrectPrefab;
 
-     public GameObject Panel;
+    public GameObject Panel;
 
-     //public GameObject newParent;
+    //public int NumberCorrect;
 
+    public int NumberTimesChecked = 0;
+
+    //Checks the active images (DressScript.check or the CheckList) against 
+    //the correct answers (DontDestroy.CorrectList).
 
     public void CheckingAnswers()
     {
-        
         DestroyAllChildrenScript.DestroyChildren();
         CheckList.Clear();
+        DontDestroy.NumberCorrect = 0;
+
+        NumberTimesChecked = NumberTimesChecked + 1;
         
         for(int i = 0; i < DressScript.NumObjects; i++)  
         {
@@ -37,6 +42,7 @@ public class CheckAnswersPPE: MonoBehaviour
         {
             GameObject CorrectIndicator;
             GameObject IncorrectIndicator;
+            //var destroyTime = 1;
 
             if(DontDestroy.CorrectList.Contains(CheckList[i].name))
             {
@@ -44,6 +50,8 @@ public class CheckAnswersPPE: MonoBehaviour
                 CorrectIndicator = Instantiate(CorrectIncorrectPrefab, CheckList[i].transform.parent.localPosition, Quaternion.identity);
                 CorrectIndicator.GetComponent<CorrectIncorect>().AssignCorrect();
                 CorrectIndicator.transform.SetParent(Panel.transform, false);
+                DontDestroy.NumberCorrect = DontDestroy.NumberCorrect + 1;
+                Debug.Log("Number Correct: " + DontDestroy.NumberCorrect + " Number of Times Checked: " + NumberTimesChecked);
             }
             else
             {
@@ -51,11 +59,17 @@ public class CheckAnswersPPE: MonoBehaviour
                 IncorrectIndicator = Instantiate(CorrectIncorrectPrefab, CheckList[i].transform.parent.localPosition, Quaternion.identity);
                 IncorrectIndicator.GetComponent<CorrectIncorect>().AssignIncorrect();
                 IncorrectIndicator.transform.SetParent(Panel.transform, false);
+                //ShowAndHide(IncorrectIndicator);
+                StartCoroutine(ShowAndHide(IncorrectIndicator));
             }
         }
     }
-
-    
-
+///not working
+    public IEnumerator ShowAndHide(GameObject x)
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(x);
+        Debug.Log("got here");
+    }
 }
     

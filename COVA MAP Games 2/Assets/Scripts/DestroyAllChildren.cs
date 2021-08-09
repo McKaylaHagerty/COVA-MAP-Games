@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Destroy the children of the panel which only contains the incorrect/correct
+//instantiated prefabs.
+
 public class DestroyAllChildren : MonoBehaviour
 {
     public GameObject[] ChildrenToDestroy;
@@ -14,23 +17,8 @@ public class DestroyAllChildren : MonoBehaviour
                 ChildrenToDestroy[i] = transform.GetChild(i).gameObject;
             }
         
-        ///The above is working. The Children to destroy are in the array.
-        
-        Debug.Log("Children to Destroy " +ChildrenToDestroy);
-        
-        
-        foreach( var x in ChildrenToDestroy) 
-		{
- 		 	Debug.Log( x.ToString());
-	    }
-
-        ///
-
-        ///Trying to destroy.
-        
         foreach(GameObject go in ChildrenToDestroy)
             {
-                ///this is working but the orginial objects still stay.
                 Destroy(go);
             }
     }

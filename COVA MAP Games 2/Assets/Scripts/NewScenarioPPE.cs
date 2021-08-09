@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Randomly chooses another scenario from the scenario list and then loads the 
+//PPE scene again. If there are no scenarios left, 
+
 public class NewScenarioPPE : MonoBehaviour
 {
         private int index;
