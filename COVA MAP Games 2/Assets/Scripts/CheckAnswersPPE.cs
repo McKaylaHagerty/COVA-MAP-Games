@@ -14,8 +14,6 @@ public class CheckAnswersPPE: MonoBehaviour
 
     public GameObject Panel;
 
-    //public int NumberCorrect;
-
     public int NumberTimesChecked = 0;
 
     //Checks the active images (DressScript.check or the CheckList) against 
@@ -36,7 +34,6 @@ public class CheckAnswersPPE: MonoBehaviour
                 CheckList.Add(DressScript.check[i]);
             }
         }
-        
         
         for(int i = 0 ; i < CheckList.Count ; i++)
         {
@@ -59,13 +56,12 @@ public class CheckAnswersPPE: MonoBehaviour
                 IncorrectIndicator = Instantiate(CorrectIncorrectPrefab, CheckList[i].transform.parent.localPosition, Quaternion.identity);
                 IncorrectIndicator.GetComponent<CorrectIncorect>().AssignIncorrect();
                 IncorrectIndicator.transform.SetParent(Panel.transform, false);
-                //ShowAndHide(IncorrectIndicator);
-                StartCoroutine(ShowAndHide(IncorrectIndicator));
+                StartCoroutine(HideX(IncorrectIndicator));
             }
         }
     }
-///not working
-    public IEnumerator ShowAndHide(GameObject x)
+
+    public IEnumerator HideX(GameObject x)
     {
         yield return new WaitForSeconds(2);
         Destroy(x);

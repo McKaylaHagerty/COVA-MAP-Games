@@ -25,6 +25,7 @@ public class ButtonControls : MonoBehaviour
         SceneManager.LoadScene("Quit");
     }
 
+
 // -------- Levels Scene ----------- //
     public string LevelChoice;
 
@@ -99,5 +100,11 @@ public class ButtonControls : MonoBehaviour
     {
         SceneManager.LoadScene("PPE");
         Debug.Log("PPE Loaded");
+    }
+
+// -------- Scoreboard Scene ----------- //
+    public void ScoreboardQuitButton()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

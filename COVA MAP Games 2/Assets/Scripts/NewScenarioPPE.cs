@@ -26,8 +26,7 @@ public class NewScenarioPPE : MonoBehaviour
 
         else
         {
-            Debug.Log("Game over");
-            SceneManager.LoadScene("PPE");
+            SceneManager.LoadScene("MainMenu");
         }
 
         }
