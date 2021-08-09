@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44470146, g: 0.49423313, b: 0.5734619, a: 1}
+  m_IndirectSpecularColor: {r: 0.44470173, g: 0.49423343, b: 0.5734626, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,7 +192,7 @@ RectTransform:
   m_Children:
   - {fileID: 211913528}
   m_Father: {fileID: 986331421}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1916,6 +1916,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &330256904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330256906}
+  - component: {fileID: 330256905}
+  m_Layer: 0
+  m_Name: ScoringScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &330256905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330256904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a4c07fe36f77046befb6cd235917ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckAnswersPPEScript: {fileID: 580321442}
+  TimerScript: {fileID: 853936757}
+  Score: 0
+  text: {fileID: 1250820800}
+--- !u!4 &330256906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330256904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 582.6835, y: 298.97833, z: 211.64796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &373291925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1995,7 @@ RectTransform:
   m_Children:
   - {fileID: 888796341}
   m_Father: {fileID: 986331421}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2530,6 +2577,8 @@ MonoBehaviour:
   DestroyAllChildrenScript: {fileID: 875151836}
   CorrectIncorrectPrefab: {fileID: 1853515367}
   Panel: {fileID: 875151835}
+  NumberCorrect: 0
+  NumberTimesChecked: 0
 --- !u!4 &580321443
 Transform:
   m_ObjectHideFlags: 0
@@ -3289,7 +3338,7 @@ RectTransform:
   m_Children:
   - {fileID: 1990792810}
   m_Father: {fileID: 986331421}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3683,6 +3732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1246028996}
   timeLeft: 0
+  CheckAnswersPPEScript: {fileID: 580321442}
+  ScoringPPEScript: {fileID: 330256905}
 --- !u!4 &853936758
 Transform:
   m_ObjectHideFlags: 0
@@ -4191,6 +4242,7 @@ RectTransform:
   m_Children:
   - {fileID: 723498191}
   - {fileID: 1246028998}
+  - {fileID: 1250820802}
   - {fileID: 1420834889}
   - {fileID: 732999110}
   - {fileID: 373291926}
@@ -5779,6 +5831,85 @@ RectTransform:
   m_AnchoredPosition: {x: 120.12, y: -277.3532}
   m_SizeDelta: {x: 240.2383, y: 86.8177}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1250820799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250820802}
+  - component: {fileID: 1250820801}
+  - component: {fileID: 1250820800}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1250820800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250820799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 34
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1250820801
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250820799}
+  m_CullTransparentMesh: 1
+--- !u!224 &1250820802
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250820799}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 986331421}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -120.12, y: -253.04}
+  m_SizeDelta: {x: 240.2383, y: 86.8177}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1267698801
 GameObject:
   m_ObjectHideFlags: 0
@@ -6648,7 +6779,7 @@ RectTransform:
   m_Children:
   - {fileID: 1881341061}
   m_Father: {fileID: 986331421}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6702,6 +6833,18 @@ MonoBehaviour:
       - m_Target: {fileID: 580321442}
         m_TargetAssemblyTypeName: CheckAnswersPPE, Assembly-CSharp
         m_MethodName: CheckingAnswers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 330256905}
+        m_TargetAssemblyTypeName: ScoringPPE, Assembly-CSharp
+        m_MethodName: GetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9186,7 +9329,7 @@ RectTransform:
   m_Children:
   - {fileID: 64052934}
   m_Father: {fileID: 986331421}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

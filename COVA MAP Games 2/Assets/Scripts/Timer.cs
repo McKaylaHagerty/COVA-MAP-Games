@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
 {
     public Text text;
     public float timeLeft = 0.0f;
+    public CheckAnswersPPE CheckAnswersPPEScript;
+    public ScoringPPE ScoringPPEScript;
 
     public void Start()
     {
@@ -29,13 +31,17 @@ public class Timer : MonoBehaviour
         }       
     }
 
+    bool Checked = false;
     void Update()
     {
         timeLeft -= Time.deltaTime;
         text.text = "Time Left: " + Mathf.Round(timeLeft);
-        if(timeLeft < 0)
+        if(timeLeft < 0 && Checked == false )
         {
-            //check
+            PauseGame();
+            CheckAnswersPPEScript.CheckingAnswers();
+            ScoringPPEScript.GetScore();
+            Checked = true;
         }
     }
 
