@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44470146, g: 0.49423313, b: 0.5734619, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4343,7 +4343,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 58.96247
   orthographic: 0
   orthographic size: 5
@@ -5126,7 +5126,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -5146,13 +5146,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132039681}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.45212463, y: -0.10308755, z: 0.19378142, w: 0.8645259}
+  m_LocalPosition: {x: 237, y: 1375, z: -411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 55.255, y: -0.303, z: 25.109}
 --- !u!1 &1140066814
 GameObject:
   m_ObjectHideFlags: 0
@@ -6857,15 +6857,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -281.37
+      value: -460
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -150.8
+      value: -174
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7114,6 +7114,10 @@ PrefabInstance:
     - target: {fileID: 863170846311425793, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863170846311425793, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bfe5f2fd72733784a9250ef4ade37227, type: 3}
       propertyPath: m_Name
