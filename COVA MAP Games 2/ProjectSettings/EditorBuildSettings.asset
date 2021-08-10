@@ -25,11 +25,5 @@ EditorBuildSettings:
     guid: 15fbfa4ea59ceda479e7b41f58b2002a
   - enabled: 1
     path: Assets/Scenes/Quit.unity
-    guid: fcd7c383a1cd5b040ba34c6c6e1c3842
-  - enabled: 0
-    path: Assets/Scenes/Instructions.unity
-    guid: 65578fe817176a94abea8c7558efc790
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    guid: d8249d21d72500746a24b888963aca38
   m_configObjects: {}
