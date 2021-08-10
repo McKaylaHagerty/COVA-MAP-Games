@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Help panel on the main menu.
+
 public class HelpPanelButton : MonoBehaviour
 {
     public GameObject HelpPanel; 
 
     public void HelpButton()
     {
-        HelpPanel.SetActive(true);
+        HelpPanel.SetActive(true);  
     }
 
     public void Update()

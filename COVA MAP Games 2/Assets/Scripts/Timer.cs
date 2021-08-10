@@ -8,19 +8,28 @@ using UnityEngine.EventSystems;
 public class Timer : MonoBehaviour
 
 {
-    public Text text;
+    public Text text;   //Timer text.
     public float timeLeft = 0.0f;
-    public CheckAnswersPPE CheckAnswersPPEScript;
+
+    //Referencing other scripts.
+    public CheckAnswersPPE CheckAnswersPPEScript;  
     public ScoringPPE ScoringPPEScript;
+
+    public GameObject NextButtonPanel; 
+    public GameObject CheckButtonPanel;
+    public GameObject[] LeftRightButtons;  //Array of the buttons that allow the user to switch between PPE.
 
     public void Start()
     {
-        CheckButtonPanel.SetActive(true);
-        NextButtonPanel.SetActive(false);
-        foreach(GameObject x in LeftRightButtons)
+        CheckButtonPanel.SetActive(true);   //Check button is active to start. Will disappear when time runs out.
+        NextButtonPanel.SetActive(false);    //Next button is inactive to start. Will appear when time runs out.
+
+        foreach(GameObject x in LeftRightButtons)  //All the buttons that allow the user to switch between PPE are active to start. Will disappear when time runs out.
         {
             x.SetActive(true);
         }
+
+        //Choose time allowed based on level choice.
 
         if(DontDestroy.LevelChoice == "Easy")
         {
@@ -34,38 +43,35 @@ public class Timer : MonoBehaviour
 
         else if(DontDestroy.LevelChoice == "Hard")
         {
-            timeLeft = 5.0f;
+            timeLeft = 5.0f;  //To be changed back to 20.0
         }       
     }
 
-    bool Checked = false;
-    public GameObject NextButtonPanel;
-    public GameObject CheckButtonPanel;
-    public GameObject[] LeftRightButtons;
-    public void Update()
+    bool Checked = false;  //Bool need to use as a condition to stop the update method.
+    public void Update()  //Timer counts down in seconds.
     {
         timeLeft -= Time.deltaTime;
         text.text = "Time Left: " + Mathf.Round(timeLeft);
-        if(timeLeft < 0 && Checked == false )
+        if(timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
         {
             PauseGame();
-            CheckAnswersPPEScript.CheckingAnswers();
-            Checked = true;
-            CheckButtonPanel.SetActive(false);
-            NextButtonPanel.SetActive(true);
-            foreach(GameObject x in LeftRightButtons)
+            CheckAnswersPPEScript.CheckingAnswers();  
+            Checked = true;  //So that the if condition is not met again.
+            CheckButtonPanel.SetActive(false);  //Hide check button.
+            NextButtonPanel.SetActive(true);   //Show Next button.
+            foreach(GameObject x in LeftRightButtons)  //Make the buttons that allow the user to switch between PPE inactive.
             {
                 x.SetActive(false);
             }
         }
     }
 
-    public void PauseGame()
+    public void PauseGame()  //Pause game and timer. Used when instructions are displayed, the help menu is active, and when the time runs out.
     {
         Time.timeScale = 0;
     }
 
-    public void ResumeGame ()
+    public void ResumeGame ()  //REsume game and timer.
     {
         Time.timeScale = 1;
     }

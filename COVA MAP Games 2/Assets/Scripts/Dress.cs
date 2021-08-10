@@ -6,22 +6,22 @@ using UnityEngine;
 
 public class Dress : MonoBehaviour
 {
-    public GameObject[] dress;
-    public GameObject[] check;
+    public GameObject[] dress;   //GameObject array of the PPE attached to the COVA Map character. 
+    public GameObject[] check;   //GameObject array of the pictures the users choose.
     public int NumObjects;
 
-    public void Start()
+    public void Start()  
     {
         NumObjects = dress.Length;
 
-        for(int i = 0; i < NumObjects; i++)
+        for(int i = 0; i < NumObjects; i++)    //Check if the users chosen pictures are active and make the corresponding PPE items on the charater active/inactive.
             if (check[i].activeInHierarchy == true)
                 dress[i].SetActive(true);
             else if (check[i].activeInHierarchy == false)
                 dress[i].SetActive(false);
     }
 
-    public void DetectPPE()
+    public void DetectPPE()    //With each click the user makes, again check if the users chosen pictures are active and make the corresponding PPE items on the charater active/inactive.
     {
         for(int i = 0; i < NumObjects; i++)
             if (check[i].activeInHierarchy == true)

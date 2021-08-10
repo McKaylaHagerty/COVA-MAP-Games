@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class QuitApplication : MonoBehaviour
 {
+    //Delay the closing of the application by 4 seconds to allow for logos to be displayed. 
+    
     public void Start()
     {
-        StartCoroutine(QuitTheApplication());
+        Time.timeScale = 1;
+        StartCoroutine(QuitTheApplication(4));
     }
 
-    public IEnumerator QuitTheApplication()
+    public IEnumerator QuitTheApplication(int sec)
     {
-        yield return new WaitForSeconds(5);
+        Debug.Log("before the wait");
+        yield return new WaitForSeconds(sec);
+        Debug.Log("after the wait");
         Debug.Log("Quitting");
         #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
         Debug.Log(this.name+" : "+this.GetType()+" : "+System.Reflection.MethodBase.GetCurrentMethod().Name); 

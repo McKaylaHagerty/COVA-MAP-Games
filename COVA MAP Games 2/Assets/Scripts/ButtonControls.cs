@@ -9,25 +9,32 @@ public class ButtonControls : MonoBehaviour
 {
 
 // -------- Intro Scene ----------- //
+
+    //Skip the into and go straight to the main menu.
     public void SkipIntroButton()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
 // -------- MainMenu Scene ----------- //
+
+    //Press play games to choose a level.
     public void PlayGamesButton()
     {
         SceneManager.LoadScene("Levels");
     }
-    
+
+    //Press quit to go to quit screen and then close the application.
     public void QuitButton()
     {
         SceneManager.LoadScene("Quit");
     }
 
-
 // -------- Levels Scene ----------- //
+
     public string LevelChoice;
+
+    //Save the level choice in DoNotDestroy so it can be used in future scenes.
 
     public void EasyChoiceButton()
     {   
@@ -53,13 +60,17 @@ public class ButtonControls : MonoBehaviour
         Debug.Log(DontDestroy.LevelChoice);
     }
 
+    //Press the back button to go back to the main menu scene.
     public void LevelsBackButton()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
 // -------- Games Scene ----------- //
+
     public string GameChoice;
+
+    //Save the game choice in DoNotDestroy so it can be used in future scenes.
 
     public void PPEGameChoiceButton()
     {   
@@ -85,17 +96,24 @@ public class ButtonControls : MonoBehaviour
         Debug.Log(DontDestroy.GameChoice);
     }
 
+    //Press the back button to go back to the choose level scene.
+
     public void GamesBackButton()
     {
         SceneManager.LoadScene("Levels");
     }
 
 // -------- About Scene ----------- //
+
+//Displays the instructions for the chosen game.
+
+    //Press the back button to go back to the choose game scene.
     public void AboutBackButton()
     {
         SceneManager.LoadScene("Games");
     }
 
+    //Press the next button to start the game.
     public void AboutNextButton()
     {
         SceneManager.LoadScene("PPE");
@@ -103,6 +121,8 @@ public class ButtonControls : MonoBehaviour
     }
 
 // -------- Scoreboard Scene ----------- //
+
+    //Press the Quit button on the Scoreboard to return to the main menu.
     public void ScoreboardQuitButton()
     {
         SceneManager.LoadScene("MainMenu");

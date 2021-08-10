@@ -11,7 +11,7 @@ public class RotatingSelectionPPE : MonoBehaviour
     public Image image;
     public Sprite[] PPEListSprite;
 
-    private void Start()
+    private void Start()  
     {
         //Toggle off their renderer
          foreach(GameObject go in PPEList)
@@ -22,7 +22,7 @@ public class RotatingSelectionPPE : MonoBehaviour
             PPEList[index].SetActive(true);
     }
 
-    public void ToggleLeft()
+    public void ToggleLeft()  //Left buttons
     {
         // toggle off the current model
         PPEList[index].SetActive(false);
@@ -36,7 +36,7 @@ public class RotatingSelectionPPE : MonoBehaviour
         image.sprite = PPEListSprite[index];
     }
 
-    public void ToggleRight()
+    public void ToggleRight()  //Right buttons
     {
         // toggle off the current model
         PPEList[index].SetActive(false);

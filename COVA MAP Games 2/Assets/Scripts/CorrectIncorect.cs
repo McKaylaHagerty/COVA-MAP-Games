@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Assign the correct sprite (incorrect or correct) to the image.
+//Assign the needed sprite (incorrect or correct) to the image.
 
 public class CorrectIncorect : MonoBehaviour
 {

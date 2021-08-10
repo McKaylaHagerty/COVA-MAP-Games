@@ -17,11 +17,11 @@ public class Scoreboard : MonoBehaviour
 
         ScoreText.text = "Score: " + DontDestroy.Score;
 
-        if(DontDestroy.NumberCorrect == 9)
+        if(DontDestroy.NumberCorrect == 9)   //If all 9 are correct, show congrats text.
         {
             CongratsText.gameObject.SetActive(true);
         }
-        else if(DontDestroy.NumberCorrect < 9)
+        else if(DontDestroy.NumberCorrect < 9)  //If any are incorrect, show fail text.
         {
             FailText.gameObject.SetActive(true);
         }
