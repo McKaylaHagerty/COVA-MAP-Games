@@ -8,11 +8,22 @@ using UnityEngine.SceneManagement;
 
 public class NewScenarioPPE : MonoBehaviour
 {
+        public GameObject NewScenarioButtonPanel;
+
+        public void Start()
+        {
+            DontDestroy.ScenarioList.Remove(DontDestroy.ScenarioChoice);
+
+            if(DontDestroy.ScenarioList.Count == 0)
+            {
+                NewScenarioButtonPanel.SetActive(false);
+            }
+        }
+        
         private int index;
 
         public void PickNewScenario()
-        {
-        DontDestroy.ScenarioList.Remove(DontDestroy.ScenarioChoice);  
+        {  
 
         if(DontDestroy.ScenarioList.Count > 0)
         {
@@ -22,11 +33,6 @@ public class NewScenarioPPE : MonoBehaviour
             Debug.Log(DontDestroy.ScenarioChoice);
 
             SceneManager.LoadScene("PPE");
-        }
-
-        else
-        {
-            SceneManager.LoadScene("MainMenu");
         }
 
         }

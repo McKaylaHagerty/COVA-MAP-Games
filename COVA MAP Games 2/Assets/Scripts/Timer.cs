@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
 
         else if(DontDestroy.LevelChoice == "Hard")
         {
-            timeLeft = 20.0f;
+            timeLeft = 5.0f;
         }       
     }
 
