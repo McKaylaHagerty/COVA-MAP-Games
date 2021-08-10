@@ -19,7 +19,7 @@ public class HelpPanelScript : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && HelpPanel.activeSelf == true)
         {
             HelpPanel.SetActive(false);
             TimerScript.ResumeGame();

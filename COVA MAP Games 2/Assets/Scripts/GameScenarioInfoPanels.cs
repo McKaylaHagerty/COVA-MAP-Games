@@ -18,7 +18,7 @@ public class GameScenarioInfoPanels : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && AboutTextPanel.activeSelf==true)
         {
             AboutTextPanel.SetActive(false);
             TimerScript.ResumeGame();

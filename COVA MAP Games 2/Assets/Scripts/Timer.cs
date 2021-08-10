@@ -15,6 +15,13 @@ public class Timer : MonoBehaviour
 
     public void Start()
     {
+        CheckButtonPanel.SetActive(true);
+        NextButtonPanel.SetActive(false);
+        foreach(GameObject x in LeftRightButtons)
+        {
+            x.SetActive(true);
+        }
+
         if(DontDestroy.LevelChoice == "Easy")
         {
             timeLeft = 60.0f;
@@ -32,7 +39,10 @@ public class Timer : MonoBehaviour
     }
 
     bool Checked = false;
-    void Update()
+    public GameObject NextButtonPanel;
+    public GameObject CheckButtonPanel;
+    public GameObject[] LeftRightButtons;
+    public void Update()
     {
         timeLeft -= Time.deltaTime;
         text.text = "Time Left: " + Mathf.Round(timeLeft);
@@ -40,8 +50,13 @@ public class Timer : MonoBehaviour
         {
             PauseGame();
             CheckAnswersPPEScript.CheckingAnswers();
-            ScoringPPEScript.GetScore();
             Checked = true;
+            CheckButtonPanel.SetActive(false);
+            NextButtonPanel.SetActive(true);
+            foreach(GameObject x in LeftRightButtons)
+            {
+                x.SetActive(false);
+            }
         }
     }
 
