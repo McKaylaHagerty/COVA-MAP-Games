@@ -11,18 +11,18 @@ public class PickScenario : MonoBehaviour
 
     public GameObject AboutText;
 
-    // Start is called before the first frame update
+    //Read in the csv.
     void Start()
     {
 
         Load(csv);
 		
-        index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);
+        index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
         DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
         Debug.Log(DontDestroy.ScenarioChoice);
 
-        DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).head);
+        DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).head);    //Create CheckList with the correct answers from the csv.
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).eyes);
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).ears);
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).face);
@@ -33,10 +33,10 @@ public class PickScenario : MonoBehaviour
         DontDestroy.CorrectList.Add(Find_id(DontDestroy.ScenarioChoice).accessories);
 
 
-        //Save about game info
+        //Save about game info.
         DontDestroy.AboutGameText = Find_id(DontDestroy.ScenarioChoice).about;
 
-        //Save instructions info
+        //Save instructions info.
         DontDestroy.InstructionsText = Find_id(DontDestroy.ScenarioChoice).instructions;
 
         AboutText.GetComponent<Text>().text = DontDestroy.AboutGameText;
@@ -97,8 +97,7 @@ public class PickScenario : MonoBehaviour
 			row.feet = grid[i][12];
 			row.accessories = grid[i][13];
 
-			//Create the scenerio list to choose randomly from the 
-			//available scenarios from the CSV rows.
+			//Create the scenerio list to choose randomly from the available scenarios from the CSV rows.
 			DontDestroy.ScenarioList.Add(row.id);
 
 			rowList.Add(row);
