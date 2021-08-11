@@ -7,11 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class NewScenarioPPE : MonoBehaviour
 {
+        
         public GameObject NewScenarioButtonPanel;  
+        public CSV CSVScript;
 
         public void Start()
         {
+
+            DontDestroy.CorrectList.Clear();
+
             DontDestroy.ScenarioList.Remove(DontDestroy.ScenarioChoice);   //Remove the used scenario.
+            DontDestroy.InstructionsList.Remove(DontDestroy.InstructionsText);
 
             if(DontDestroy.ScenarioList.Count == 0)   //If there are no scenarios left, hide the next scenario button.
             {
@@ -28,6 +34,18 @@ public class NewScenarioPPE : MonoBehaviour
         {
             index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);
             DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
+            DontDestroy.InstructionsText = DontDestroy.InstructionsList[index];
+
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).head);    //Create CheckList with the correct answers from the csv.
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).eyes);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).ears);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).face);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).top);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).hands);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).bottom);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).feet);
+        DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).accessories);
+
 
             Debug.Log(DontDestroy.ScenarioChoice);
 

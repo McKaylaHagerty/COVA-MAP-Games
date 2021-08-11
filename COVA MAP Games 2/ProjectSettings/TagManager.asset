@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ValvesSpots
+    uniqueID: 2725577683
+    locked: 0
+  - name: Valves
+    uniqueID: 3556923359
+    locked: 0

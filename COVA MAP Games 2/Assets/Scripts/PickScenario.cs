@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class PickScenario : MonoBehaviour
 {
     public TextAsset csv;
-    
-    private int index;
+
+	private int index;
 
     public GameObject AboutText;
 
@@ -99,6 +99,10 @@ public class PickScenario : MonoBehaviour
 
 			//Create the scenerio list to choose randomly from the available scenarios from the CSV rows.
 			DontDestroy.ScenarioList.Add(row.id);
+
+			/////////////
+			DontDestroy.InstructionsList.Add(row.instructions);
+			/////////////
 
 			rowList.Add(row);
 		}
