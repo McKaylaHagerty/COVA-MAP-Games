@@ -15,7 +15,7 @@ public class Scoreboard : MonoBehaviour
         CongratsText.gameObject.SetActive(false);
         FailText.gameObject.SetActive(false);
 
-        ScoreText.text = "Score: " + DontDestroy.Score;
+        ScoreText.text = "Your Score: " + DontDestroy.Score;
 
         if(DontDestroy.NumberCorrect == 9)   //If all 9 are correct, show congrats text.
         {
