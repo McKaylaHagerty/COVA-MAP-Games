@@ -59,7 +59,7 @@ public class CheckAnswersPPE: MonoBehaviour
                 IncorrectIndicator.GetComponent<CorrectIncorect>().AssignIncorrect(); //assign the prefab incorrect (x).
                 IncorrectIndicator.transform.SetParent(Panel.transform, false);
                 StartCoroutine(HideX(IncorrectIndicator));
-            }
+            } 
         }
     }
     //After 2 seconds of being displayed, destroy the x's.
