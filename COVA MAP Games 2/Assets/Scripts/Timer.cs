@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
 
 {
     public Text text;   //Timer text.
+    public float time = 0.0f;
     public float timeLeft = 0.0f;
 
     //Referencing other scripts.
@@ -19,8 +20,14 @@ public class Timer : MonoBehaviour
     public GameObject CheckButtonPanel;
     public GameObject[] LeftRightButtons;  //Array of the buttons that allow the user to switch between PPE.
 
+    public Image hard;
+    public Image medium;
+    public Image easy;
+
     public void Start()
     {
+        time = 20.0f;
+
         CheckButtonPanel.SetActive(true);   //Check button is active to start. Will disappear when time runs out.
         NextButtonPanel.SetActive(false);    //Next button is inactive to start. Will appear when time runs out.
 
@@ -39,11 +46,14 @@ public class Timer : MonoBehaviour
         else if(DontDestroy.LevelChoice == "Medium")
         {
             timeLeft = 40.0f;
+            easy.enabled = false;
         }
 
         else if(DontDestroy.LevelChoice == "Hard")
         {
-            timeLeft = 5.0f;  //To be changed back to 20.0
+            timeLeft = 20.0f;  //To be changed back to 20.0
+            easy.enabled = false;
+            medium.enabled = false;
         }       
     }
 
@@ -52,7 +62,23 @@ public class Timer : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
         text.text = "Time Left: " + Mathf.Round(timeLeft);
-        if(timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
+
+        if(timeLeft<=20.0f)
+        {
+            hard.fillAmount -= 1.0f / time * Time.deltaTime;
+        }
+
+        if (timeLeft <= 40.0f)
+        {
+            medium.fillAmount -= 1.0f / time * Time.deltaTime;
+        }
+
+        if (timeLeft <= 60.0f)
+        {
+            easy.fillAmount -= 1.0f / time * Time.deltaTime;
+        }
+
+        if (timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
         {
             PauseGame();
             CheckAnswersPPEScript.CheckingAnswers();  
@@ -65,6 +91,7 @@ public class Timer : MonoBehaviour
             }
         }
     }
+
 
     public void PauseGame()  //Pause game and timer. Used when instructions are displayed, the help menu is active, and when the time runs out.
     {
