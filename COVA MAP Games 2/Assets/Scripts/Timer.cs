@@ -61,7 +61,7 @@ public class Timer : MonoBehaviour
     public void Update()  //Timer counts down in seconds.
     {
         timeLeft -= Time.deltaTime;
-        text.text = "Time Left: " + Mathf.Round(timeLeft);
+        text.text = "" + Mathf.Round(timeLeft);
 
         if(timeLeft<=20.0f)
         {
