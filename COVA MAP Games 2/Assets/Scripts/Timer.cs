@@ -28,13 +28,26 @@ public class Timer : MonoBehaviour
     {
         time = 20.0f;
 
-        CheckButtonPanel.SetActive(true);   //Check button is active to start. Will disappear when time runs out.
+        if (DontDestroy.GameChoice == "PPE")
+        {
+            CheckButtonPanel.SetActive(true);   //Check button is active to start. Will disappear when time runs out.
+        }
+
+        if (DontDestroy.GameChoice == "Valves")
+        {
+            CheckButtonPanel.SetActive(false);   //Check button is active to start. Will disappear when time runs out.
+        }
+
         NextButtonPanel.SetActive(false);    //Next button is inactive to start. Will appear when time runs out.
 
-        foreach(GameObject x in LeftRightButtons)  //All the buttons that allow the user to switch between PPE are active to start. Will disappear when time runs out.
+        if (DontDestroy.GameChoice == "PPE")
         {
-            x.SetActive(true);
+            foreach (GameObject x in LeftRightButtons)  //All the buttons that allow the user to switch between PPE are active to start. Will disappear when time runs out.
+            {
+                x.SetActive(true);
+            }
         }
+
 
         //Choose time allowed based on level choice.
 
@@ -60,6 +73,7 @@ public class Timer : MonoBehaviour
     bool Checked = false;  //Bool need to use as a condition to stop the update method.
     public void Update()  //Timer counts down in seconds.
     {
+        //Debug.Log($"My F**** Time Scale is: ${Time.timeScale}");
         timeLeft -= Time.deltaTime;
         text.text = "" + Mathf.Round(timeLeft);
 
@@ -81,13 +95,16 @@ public class Timer : MonoBehaviour
         if (timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
         {
             PauseGame();
-            CheckAnswersPPEScript.CheckingAnswers();  
-            Checked = true;  //So that the if condition is not met again.
-            CheckButtonPanel.SetActive(false);  //Hide check button.
-            NextButtonPanel.SetActive(true);   //Show Next button.
-            foreach(GameObject x in LeftRightButtons)  //Make the buttons that allow the user to switch between PPE inactive.
+            if (DontDestroy.GameChoice == "PPE")
             {
-                x.SetActive(false);
+                CheckAnswersPPEScript.CheckingAnswers();
+                Checked = true;  //So that the if condition is not met again.
+                CheckButtonPanel.SetActive(false);  //Hide check button.
+                NextButtonPanel.SetActive(true);   //Show Next button.
+                foreach (GameObject x in LeftRightButtons)  //Make the buttons that allow the user to switch between PPE inactive.
+                {
+                    x.SetActive(false);
+                }
             }
         }
     }

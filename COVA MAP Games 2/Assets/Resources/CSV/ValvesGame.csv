@@ -1,0 +1,4 @@
+﻿Scenario,MainGameDescription,MainScenarioDescription,ValveOneDescription,ValveOne,ValveOneRotation,ValveTwoDescription,ValveTwo,ValveTwoRotation,ValveThreeDescription,ValveThree,ValveThreeRotation,ValveFourDescription,ValveFour,ValveFourRotation,ValveFiveDescription,ValveFive,ValveFiveRotation
+1,Scanario 1,This is Scenario One main description,This is Valve One description,globe,0,This is Valve Two description,,,This is Valve Three description,,,This is Valve Four description,,,This is Valve Five description,,
+2,Scanario 2,This is Scenario Two main description,This is Valve One description,ball,180,This is Valve Two description,,,This is Valve Three description,,,This is Valve Four description,,,This is Valve Five description,,
+3,Scanario 3,This is Scenario Three main description,This is Valve One description,check,0,This is Valve Two description,,,This is Valve Three description,,,This is Valve Four description,,,This is Valve Five description,,

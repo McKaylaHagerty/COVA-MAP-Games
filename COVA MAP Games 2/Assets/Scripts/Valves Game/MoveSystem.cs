@@ -9,6 +9,16 @@ public class MoveSystem : MonoBehaviour
     private float startx;
     private float starty;
 
+    Collider other;
+
+    public ValvesCSV ValvesCSVScript;
+
+
+
+    private void Start()
+    {
+    }
+
     private void OnMouseDown()
     {
         startx = transform.position.x;
@@ -18,13 +28,51 @@ public class MoveSystem : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        Debug.Log("mouse drag");
+        //Debug.Log("mouse drag");
         Vector3 CurrentPos = transform.position;
         this.gameObject.transform.position = new Vector3(Cursor3D.Position.x - StartPosX, Cursor3D.Position.y - StartPosY, transform.position.z);
-        Debug.Log(Input.mousePosition.x);
+        //Debug.Log(Input.mousePosition.x);
     }
     private void OnMouseUp()
     {
+        Debug.Log("mouse up");
+
+       // OnTriggerEnter;
+
         this.gameObject.transform.position = new Vector3(startx, starty, transform.position.z);
+
+        if (other != null)
+        {
+            ValveSpot spot = other.GetComponent<ValveSpot>();
+            if (spot != null && spot.correctValve == gameObject)
+            {
+                // This is the right one
+                Debug.Log("The correct valve shows now");
+                //Make correct valve show
+
+                //Go to next discription
+                ValvesCSVScript.DisplayCorrectValveDescription();
+
+            }
+            else
+            {
+                // This is the wrong one
+                Debug.Log("An X shows now. This is incorrect.");
+                // Make X show
+            }
+        }
     }
+    
+    void OnTriggerEnter(Collider other)
+    {
+        print("on trigger enterrrrr");
+        Debug.Log(other.gameObject.name);
+        this.other = other;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        this.other = null;
+    }
+
 }

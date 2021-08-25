@@ -30,7 +30,7 @@ public class ButtonControls : MonoBehaviour
         SceneManager.LoadScene("Quit");
     }
 
-// -------- Levels Scene ----------- //
+    // -------- Levels Scene ----------- //
 
     public string LevelChoice;
 
@@ -92,7 +92,7 @@ public class ButtonControls : MonoBehaviour
     {   
         GameChoice = "Valves";
         DontDestroy.GameChoice = GameChoice;
-        SceneManager.LoadScene("About");
+        SceneManager.LoadScene("AboutValves");
         Debug.Log(DontDestroy.GameChoice);
     }
 
@@ -120,7 +120,13 @@ public class ButtonControls : MonoBehaviour
         Debug.Log("PPE Loaded");
     }
 
-// -------- Scoreboard Scene ----------- //
+    public void AboutNextButtonValves()
+    {
+        SceneManager.LoadScene("Valves");
+        Debug.Log("PPE Loaded");
+    }
+
+    // -------- Scoreboard Scene ----------- //
 
     //Press the Quit button on the Scoreboard to return to the main menu.
     public void ScoreboardQuitButton()
