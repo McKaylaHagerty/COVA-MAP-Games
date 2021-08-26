@@ -22,6 +22,9 @@ public class DontDestroy : MonoBehaviour
 
     public static int Score = 0;
     public static int NumberCorrect;
+    public static int NumberTimesChecked; //used for valve game
+
+    public static bool BeenThroughFirstValveScenario;
 
     void Awake()
     {

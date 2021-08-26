@@ -20,7 +20,7 @@ public class PickScenarioValves : MonoBehaviour
 		index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
 		DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
-		Debug.Log(DontDestroy.ScenarioChoice);
+		Debug.Log("Scenario Choice:" + DontDestroy.ScenarioChoice);
 
 
 		//Save about game info.
@@ -30,6 +30,8 @@ public class PickScenarioValves : MonoBehaviour
 		DontDestroy.InstructionsText = Find_Scenario(DontDestroy.ScenarioChoice).MainScenarioDescription;
 
 		AboutText.GetComponent<Text>().text = DontDestroy.AboutGameText;
+
+		DontDestroy.BeenThroughFirstValveScenario = false;
 
 	}
 

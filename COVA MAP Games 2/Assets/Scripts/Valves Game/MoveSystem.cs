@@ -13,10 +13,13 @@ public class MoveSystem : MonoBehaviour
 
     public ValvesCSV ValvesCSVScript;
 
+    public ScoringValves ScoringValvesScript;
+
 
 
     private void Start()
     {
+        DontDestroy.NumberCorrect = 0;
     }
 
     private void OnMouseDown()
@@ -50,8 +53,13 @@ public class MoveSystem : MonoBehaviour
                 Debug.Log("The correct valve shows now");
                 //Make correct valve show
 
+
+                DontDestroy.NumberCorrect = DontDestroy.NumberCorrect + 1;
+
                 //Go to next discription
                 ValvesCSVScript.DisplayCorrectValveDescription();
+
+                ScoringValvesScript.GetScore();
 
             }
             else
@@ -59,6 +67,10 @@ public class MoveSystem : MonoBehaviour
                 // This is the wrong one
                 Debug.Log("An X shows now. This is incorrect.");
                 // Make X show
+
+                DontDestroy.NumberTimesChecked = DontDestroy.NumberTimesChecked + 1;
+
+                ScoringValvesScript.GetScore();
             }
         }
     }

@@ -120,11 +120,12 @@ public class ButtonControls : MonoBehaviour
         Debug.Log("PPE Loaded");
     }
 
-    public void AboutNextButtonValves()
+    public void AboutNextButtonValves() ///also used on scoreboard 
     {
         SceneManager.LoadScene("Valves");
-        Debug.Log("PPE Loaded");
+        Debug.Log("Game Loaded");
     }
+
 
     // -------- Scoreboard Scene ----------- //
 

@@ -8,30 +8,93 @@ public class ValvesCSV : MonoBehaviour
 	public TextAsset csv;
 
 	public GameObject AboutValveText;
+	public GameObject AboutValvePanel;
 
 	public List<string> DescriptionsList;
 
 	public string CurrectValveDescription;
 
+	public int indexValve = 0;
+
 	public int index = 0;
+
+	public GameObject CheckButtonPanel;
+
+	public GameObject NextButtonPanel;
+
 
 
 	//Read in the csv.
 	void Start()
 	{
-		DescriptionsList.Clear();
+		if(DontDestroy.BeenThroughFirstValveScenario == false)
+		{
+			DescriptionsList.Clear();
 
-		Load(csv);
+			Load(csv);
 
-		AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
+			AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
+
+			CheckButtonPanel.SetActive(false);
+			NextButtonPanel.SetActive(false);
+
+			DontDestroy.BeenThroughFirstValveScenario = true;
+		}
+		else
+		{
+			DescriptionsList.Clear();
+
+			Load(csv);
+
+			DontDestroy.ScenarioList.Remove(DontDestroy.ScenarioChoice);   //Remove the used scenario.
+
+			if (DontDestroy.ScenarioList.Count == 0)   //If there are no scenarios left, hide the next scenario button.
+			{
+				print("No new scenarios");
+				//NewScenarioButtonPanel.SetActive(false);
+			}
+
+			else
+			{
+				index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
+
+				DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
+
+				//Save about game info.
+				DontDestroy.AboutGameText = Find_Scenario(DontDestroy.ScenarioChoice).MainGameDescription;
+
+				//Save instructions info.
+				DontDestroy.InstructionsText = Find_Scenario(DontDestroy.ScenarioChoice).MainScenarioDescription;
+
+				AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
+
+				CheckButtonPanel.SetActive(false);
+				NextButtonPanel.SetActive(false);
+			}
+		}
+
 	}
 
 	public void DisplayCorrectValveDescription()
 	{
-		index = index+1;
+		indexValve = indexValve + 1;
 
-		AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
+		if (indexValve < 5)
+		{
+			AboutValveText.GetComponent<Text>().text = DescriptionsList[indexValve];
+
+		}
+		else
+        {
+			print("over 5");
+			AboutValvePanel.SetActive(false);
+			CheckButtonPanel.SetActive(true);
+			NextButtonPanel.SetActive(true);
+		}
+
+		print(indexValve);
 	}
+
 
 	public class Row
 	{
@@ -97,12 +160,14 @@ public class ValvesCSV : MonoBehaviour
 
 			rowList.Add(row);
 
-			DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveOneDescription);
-			DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveTwoDescription);
-			DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveThreeDescription);
-			DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveFourDescription);
-			DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveFiveDescription);
-		}
+        }
+
+		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveOneDescription);
+		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveTwoDescription);
+		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveThreeDescription);
+		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveFourDescription);
+		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveFiveDescription);
+
 		isLoaded = true;
 	}
 
