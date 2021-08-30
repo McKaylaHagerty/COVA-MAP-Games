@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NewScenarioButtonPanel: {fileID: 1507023638}
-  CSVScript: {fileID: 0}
+  CSVScript: {fileID: 882789112}
 --- !u!4 &819315781
 Transform:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe7f098a236312479101f972dd0883b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csv: {fileID: 4900000, guid: 87de5236dfa30814a9b7defd9d41d3cb, type: 3}
+  csv: {fileID: 4900000, guid: 6840bea83ef844b47a4e6c0abba999df, type: 3}
 --- !u!4 &882789113
 Transform:
   m_ObjectHideFlags: 0
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1894459512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cddb0d57c6112fb44bb9e09d4fdca399, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ae4873750bb6ea47be44a4d0ac0d2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 839524076}

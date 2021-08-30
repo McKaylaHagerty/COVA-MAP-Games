@@ -17,11 +17,12 @@ public class GameScenarioInfoPanels : MonoBehaviour
         AboutText.GetComponent<Text>().text = DontDestroy.InstructionsText;  //Pull scenario instructions text that was saved to the DoNotDestroy script.
         TimerScript.PauseGame();  //Game starts paused until the scenario instructions are read and the user proceeds to the game.
         DontDestroy.ScenarioCounter = DontDestroy.ScenarioCounter + 1;
-        ScenarioReminderText.GetComponent<Text>().text = "Dressing for "+DontDestroy.ScenarioReminderText+".";
+        
 
         if (DontDestroy.GameChoice == "PPE")
         {
             ScenarioText.GetComponent<Text>().text = "Scenario: " + DontDestroy.ScenarioCounter + "/5";
+            ScenarioReminderText.GetComponent<Text>().text = "Dressing for " + DontDestroy.ScenarioReminderText + ".";
         }
 
         if (DontDestroy.GameChoice == "Valves")

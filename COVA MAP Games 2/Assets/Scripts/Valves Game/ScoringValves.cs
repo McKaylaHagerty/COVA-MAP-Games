@@ -17,7 +17,7 @@ public class ScoringValves : MonoBehaviour
             DontDestroy.Score = 35 + DontDestroy.NumberCorrect * 9 + (DontDestroy.NumberTimesChecked) * (-4);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;
-            if (DontDestroy.NumberCorrect == 5 || TimerScript.timeLeft < 0)   
+            if (DontDestroy.NumberCorrect == 5 || DontDestroy.timeLeft < 0)   
             {
                 SceneManager.LoadScene("ScoreboardValves");
             }
@@ -27,7 +27,7 @@ public class ScoringValves : MonoBehaviour
             DontDestroy.Score = 45 + DontDestroy.NumberCorrect * 9 + (DontDestroy.NumberTimesChecked) * (-4);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;
-            if (DontDestroy.NumberCorrect == 5 || TimerScript.timeLeft < 0)   
+            if (DontDestroy.NumberCorrect == 5 || DontDestroy.timeLeft < 0)   
             {
                 SceneManager.LoadScene("ScoreboardValves");
             }
@@ -37,7 +37,7 @@ public class ScoringValves : MonoBehaviour
             DontDestroy.Score = 55 + DontDestroy.NumberCorrect * 9 + (DontDestroy.NumberTimesChecked) * (-4);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;
-            if (DontDestroy.NumberCorrect == 5 || TimerScript.timeLeft < 0)   
+            if (DontDestroy.NumberCorrect == 5 || DontDestroy.timeLeft < 0)   
             {
                 SceneManager.LoadScene("ScoreboardValves");
             }

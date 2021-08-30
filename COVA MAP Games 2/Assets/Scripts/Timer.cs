@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
 {
     public Text text;   //Timer text.
     public float time = 0.0f;
-    public float timeLeft = 0.0f;
+    //public float timeLeft = 0.0f;
 
     //Referencing other scripts.
     public CheckAnswersPPE CheckAnswersPPEScript;  
@@ -24,9 +24,19 @@ public class Timer : MonoBehaviour
     public Image medium;
     public Image easy;
 
+    public Color redColor = Color.red;
+    public float redTime = 10.0f; // Seconds to start turning text red
+    public float flashRedTime = 5.0f; // Seconds to start turning text red
+    public float flashRedSpeed = 3.0f;
+
+    Color initialColor;
+
+
     public void Start()
     {
         time = 20.0f;
+
+        initialColor = text.color;
 
         if (DontDestroy.GameChoice == "PPE")
         {
@@ -53,46 +63,61 @@ public class Timer : MonoBehaviour
 
         if(DontDestroy.LevelChoice == "Easy")
         {
-            timeLeft = 60.0f;
+            DontDestroy.timeLeft = 60.0f;
         }
 
         else if(DontDestroy.LevelChoice == "Medium")
         {
-            timeLeft = 40.0f;
+            DontDestroy.timeLeft = 40.0f;
             easy.enabled = false;
         }
 
         else if(DontDestroy.LevelChoice == "Hard")
         {
-            timeLeft = 20.0f;  //To be changed back to 20.0
+            DontDestroy.timeLeft = 20.0f;  //To be changed back to 20.0
             easy.enabled = false;
             medium.enabled = false;
         }       
     }
 
     bool Checked = false;  //Bool need to use as a condition to stop the update method.
+
     public void Update()  //Timer counts down in seconds.
     {
         //Debug.Log($"My F**** Time Scale is: ${Time.timeScale}");
-        timeLeft -= Time.deltaTime;
-        text.text = "" + Mathf.Round(timeLeft);
+        DontDestroy.timeLeft -= Time.deltaTime;
+        text.text = "" + Mathf.Round(DontDestroy.timeLeft);
 
-        if(timeLeft<=20.0f)
+        if (DontDestroy.timeLeft < redTime)
+        {
+            text.color = redColor;
+
+            if (DontDestroy.timeLeft < flashRedTime)
+            {
+                text.color = ((Time.time * flashRedSpeed % 1) < 0.5f) ? Color.clear : redColor;
+            }
+        }
+        else
+        {
+            text.color = initialColor;
+        }
+
+        if(DontDestroy.timeLeft <=20.0f)
         {
             hard.fillAmount -= 1.0f / time * Time.deltaTime;
         }
 
-        if (timeLeft <= 40.0f)
+        if (DontDestroy.timeLeft <= 40.0f)
         {
             medium.fillAmount -= 1.0f / time * Time.deltaTime;
         }
 
-        if (timeLeft <= 60.0f)
+        if (DontDestroy.timeLeft <= 60.0f)
         {
             easy.fillAmount -= 1.0f / time * Time.deltaTime;
         }
 
-        if (timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
+        if (DontDestroy.timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
         {
             PauseGame();
             if (DontDestroy.GameChoice == "PPE")

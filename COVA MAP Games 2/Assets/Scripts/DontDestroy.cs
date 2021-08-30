@@ -19,7 +19,6 @@ public class DontDestroy : MonoBehaviour
     public static List<string> InstructionsList = new List<string>();
 
     public static string ScenarioReminderText;
-    public static List<string> ScenarioReminderTextList = new List<string>();
 
     public static string AboutGameText;
 
@@ -30,6 +29,8 @@ public class DontDestroy : MonoBehaviour
     public static bool BeenThroughFirstValveScenario;
 
     public static int ScenarioCounter = 0;
+
+    public static float timeLeft = 0.00f;
 
     void Awake()
     {
