@@ -20,8 +20,11 @@ public class Scoreboard : MonoBehaviour
         FailText.gameObject.SetActive(false);
         TimeBonusGameObject.gameObject.SetActive(false);
 
+        Time.timeScale = 1;
+
         if (DontDestroy.GameChoice == "PPE")
         {
+            print(DontDestroy.timeLeft);
 
             if (DontDestroy.LevelChoice == "Hard" && DontDestroy.NumberCorrect == 9)
             {
@@ -88,7 +91,7 @@ public class Scoreboard : MonoBehaviour
     public IEnumerator GetScoreWithBonus()
     {
         print("start delay");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         TimeBonusText.GetComponent<Text>().text = "+" + TimeBonus.ToString();
         TotalScoreWithTimeBonus = DontDestroy.Score + TimeBonus;
         TimeBonusGameObject.gameObject.SetActive(true);
