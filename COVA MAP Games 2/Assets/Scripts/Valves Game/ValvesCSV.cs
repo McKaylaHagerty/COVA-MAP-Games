@@ -33,6 +33,10 @@ public class ValvesCSV : MonoBehaviour
 
 			Load(csv);
 
+			DontDestroy.ScenarioCounter = 0;
+
+
+
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
 
 			CheckButtonPanel.SetActive(false);

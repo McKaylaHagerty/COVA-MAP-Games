@@ -16,8 +16,10 @@ public class PickScenario : MonoBehaviour
     {
 
         Load(csv);
-		
-        index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
+
+		DontDestroy.ScenarioCounter = 0;
+
+		index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
         DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
         Debug.Log(DontDestroy.ScenarioChoice);
@@ -39,7 +41,10 @@ public class PickScenario : MonoBehaviour
         //Save instructions info.
         DontDestroy.InstructionsText = Find_id(DontDestroy.ScenarioChoice).instructions;
 
-        AboutText.GetComponent<Text>().text = DontDestroy.AboutGameText;
+		DontDestroy.ScenarioReminderText = Find_id(DontDestroy.ScenarioChoice).scenario;
+
+
+		AboutText.GetComponent<Text>().text = DontDestroy.AboutGameText;
 
     }
 

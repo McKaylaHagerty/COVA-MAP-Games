@@ -35,6 +35,7 @@ public class NewScenarioPPE : MonoBehaviour
             index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);
             DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
             DontDestroy.InstructionsText = DontDestroy.InstructionsList[index];
+            DontDestroy.ScenarioReminderText = CSV.Find_id(DontDestroy.ScenarioChoice).scenario;
 
         DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).head);    //Create CheckList with the correct answers from the csv.
         DontDestroy.CorrectList.Add(CSV.Find_id(DontDestroy.ScenarioChoice).eyes);

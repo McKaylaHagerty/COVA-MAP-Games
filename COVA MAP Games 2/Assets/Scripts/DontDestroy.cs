@@ -18,6 +18,9 @@ public class DontDestroy : MonoBehaviour
     public static string InstructionsText;
     public static List<string> InstructionsList = new List<string>();
 
+    public static string ScenarioReminderText;
+    public static List<string> ScenarioReminderTextList = new List<string>();
+
     public static string AboutGameText;
 
     public static int Score = 0;
@@ -25,6 +28,8 @@ public class DontDestroy : MonoBehaviour
     public static int NumberTimesChecked; //used for valve game
 
     public static bool BeenThroughFirstValveScenario;
+
+    public static int ScenarioCounter = 0;
 
     void Awake()
     {
