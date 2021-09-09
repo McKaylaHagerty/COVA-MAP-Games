@@ -20,6 +20,7 @@ public class MoveSystem : MonoBehaviour
     private void Start()
     {
         DontDestroy.NumberCorrect = 0;
+
     }
 
     private void OnMouseDown()
@@ -50,7 +51,8 @@ public class MoveSystem : MonoBehaviour
             if (spot != null && spot.correctValves.Contains(gameObject))
             {
                 // This is the right one
-                Debug.Log("The correct valve shows now");
+                Debug.Log("INDEXVALVE: " + ValvesCSVScript.indexValve);
+                ValvesCSVScript.ValveSpotsList[ValvesCSVScript.indexValve].GetComponent<Collider>().enabled = false;
                 //Make correct valve show
 
 
@@ -61,6 +63,7 @@ public class MoveSystem : MonoBehaviour
 
                 ScoringValvesScript.GetScore();
 
+                this.other = null;
             }
             else
             {
@@ -71,6 +74,9 @@ public class MoveSystem : MonoBehaviour
                 DontDestroy.NumberTimesChecked = DontDestroy.NumberTimesChecked + 1;
 
                 ScoringValvesScript.GetScore();
+
+                //this.other = null;
+
             }
         }
     }

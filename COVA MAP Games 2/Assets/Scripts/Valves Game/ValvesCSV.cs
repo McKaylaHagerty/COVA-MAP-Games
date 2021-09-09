@@ -12,6 +12,13 @@ public class ValvesCSV : MonoBehaviour
 
 	public List<string> DescriptionsList;
 
+	public List<GameObject> ValveSpotsList1;
+	public List<GameObject> ValveSpotsList2;
+	public List<GameObject> ValveSpotsList3;
+	public List<GameObject> ValveSpotsList4;
+
+	public List<GameObject> ValveSpotsList;
+
 	public string CurrectValveDescription;
 
 	public int indexValve = 0;
@@ -30,16 +37,33 @@ public class ValvesCSV : MonoBehaviour
 	//Read in the csv.
 	void Start()
 	{
-		if(DontDestroy.BeenThroughFirstValveScenario == false)
+		ValveSpotsList.Clear();
+
+
+
+		if (DontDestroy.BeenThroughFirstValveScenario == false)
 		{
 
 			Load(csv);
+
+			if (DontDestroy.ScenarioChoice == "1")
+			{
+				ValveSpotsList = ValveSpotsList1;
+			}
+
+			foreach (var x in ValveSpotsList)
+			{
+				x.GetComponent<Collider>().enabled = false;
+			}
+
 
 			DontDestroy.ScenarioCounter = 0;
 
 
 
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
+
+			ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
 
 			CheckButtonPanel.SetActive(false);
 			NextButtonPanel.SetActive(false);
@@ -69,6 +93,31 @@ public class ValvesCSV : MonoBehaviour
 
 				print("Scenario Choice: " + DontDestroy.ScenarioChoice);
 
+				if (DontDestroy.ScenarioChoice == "1")
+				{
+					ValveSpotsList = ValveSpotsList1;
+				}
+
+				if (DontDestroy.ScenarioChoice == "2")
+				{
+					ValveSpotsList = ValveSpotsList2;
+				}
+
+				if (DontDestroy.ScenarioChoice == "3")
+				{
+					ValveSpotsList = ValveSpotsList3;
+				}
+
+				if (DontDestroy.ScenarioChoice == "4")
+				{
+					ValveSpotsList = ValveSpotsList4;
+				}
+
+				foreach (var x in ValveSpotsList)
+				{
+					x.GetComponent<Collider>().enabled = false;
+				}
+
 				Load(csv);
 
 				print("Length" + DescriptionsList.Count);
@@ -87,6 +136,8 @@ public class ValvesCSV : MonoBehaviour
 
 				AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
 
+				ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
+
 				CheckButtonPanel.SetActive(false);
 				NextButtonPanel.SetActive(false);
 
@@ -94,6 +145,7 @@ public class ValvesCSV : MonoBehaviour
 			}
 
 		}
+
 
 	}
 
@@ -104,7 +156,8 @@ public class ValvesCSV : MonoBehaviour
 		if (indexValve < System.Convert.ToInt32(DontDestroy.NumberOfValves))
 		{
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[indexValve];
-			
+
+			ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
 		}
 		else
         {
