@@ -14,30 +14,30 @@ public class ScoringValves : MonoBehaviour
     {
         if (DontDestroy.LevelChoice == "Easy")
         {
-            DontDestroy.Score = 35 + DontDestroy.NumberCorrect * 9 + (DontDestroy.NumberTimesChecked) * (-4);
+            DontDestroy.Score = DontDestroy.NumberCorrect * 45/(System.Convert.ToInt32(DontDestroy.NumberOfValves)) + (DontDestroy.NumberTimesChecked) * (-6);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;
-            if (DontDestroy.NumberCorrect == 5 || DontDestroy.timeLeft < 0)   
+            if (DontDestroy.NumberCorrect == System.Convert.ToInt32(DontDestroy.NumberOfValves) || DontDestroy.timeLeft < 0)   
             {
                 SceneManager.LoadScene("ScoreboardValves");
             }
         }
         else if (DontDestroy.LevelChoice == "Medium")
         {
-            DontDestroy.Score = 45 + DontDestroy.NumberCorrect * 9 + (DontDestroy.NumberTimesChecked) * (-4);
+            DontDestroy.Score = DontDestroy.NumberCorrect * 45 / (System.Convert.ToInt32(DontDestroy.NumberOfValves)) + (DontDestroy.NumberTimesChecked) * (-6);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;
-            if (DontDestroy.NumberCorrect == 5 || DontDestroy.timeLeft < 0)   
+            if (DontDestroy.NumberCorrect == System.Convert.ToInt32(DontDestroy.NumberOfValves) || DontDestroy.timeLeft < 0)   
             {
                 SceneManager.LoadScene("ScoreboardValves");
             }
         }
         else if (DontDestroy.LevelChoice == "Hard")
         {
-            DontDestroy.Score = 55 + DontDestroy.NumberCorrect * 9 + (DontDestroy.NumberTimesChecked) * (-4);
+            DontDestroy.Score = DontDestroy.NumberCorrect * 45 / (System.Convert.ToInt32(DontDestroy.NumberOfValves)) + (DontDestroy.NumberTimesChecked) * (-6);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;
-            if (DontDestroy.NumberCorrect == 5 || DontDestroy.timeLeft < 0)   
+            if (DontDestroy.NumberCorrect == System.Convert.ToInt32(DontDestroy.NumberOfValves) || DontDestroy.timeLeft < 0)   
             {
                 SceneManager.LoadScene("ScoreboardValves");
             }

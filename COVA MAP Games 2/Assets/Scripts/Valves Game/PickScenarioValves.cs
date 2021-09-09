@@ -16,15 +16,16 @@ public class PickScenarioValves : MonoBehaviour
 	{
 
 		Load(csv);
-
-		index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
+		index = 0;
+		//index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
 		DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
 		Debug.Log("Scenario Choice:" + DontDestroy.ScenarioChoice);
 
-
 		//Save about game info.
 		DontDestroy.AboutGameText = Find_Scenario(DontDestroy.ScenarioChoice).MainGameDescription;
+
+		DontDestroy.NumberOfValves = Find_Scenario(DontDestroy.ScenarioChoice).NumberOfValves;
 
 		//Save instructions info.
 		DontDestroy.InstructionsText = Find_Scenario(DontDestroy.ScenarioChoice).MainScenarioDescription;
@@ -38,6 +39,7 @@ public class PickScenarioValves : MonoBehaviour
 	public class Row
 	{
 		public string Scenario;
+		public string NumberOfValves;
 		public string MainGameDescription;
 		public string MainScenarioDescription;
 		public string ValveOneDescription;
@@ -55,7 +57,9 @@ public class PickScenarioValves : MonoBehaviour
 		public string ValveFiveDescription;
 		public string ValveFive;
 		public string ValveFiveRotation;
+
 	}
+
 
 	List<Row> rowList = new List<Row>();
 	bool isLoaded = false;
@@ -78,23 +82,25 @@ public class PickScenarioValves : MonoBehaviour
 		{
 			Row row = new Row();
 			row.Scenario = grid[i][0];
-			row.MainGameDescription = grid[i][1];
-			row.MainScenarioDescription = grid[i][2];
-			row.ValveOneDescription = grid[i][3];
-			row.ValveOne = grid[i][4];
-			row.ValveOneRotation = grid[i][5];
-			row.ValveTwoDescription = grid[i][6];
-			row.ValveTwo = grid[i][7];
-			row.ValveTwoRotation = grid[i][8];
-			row.ValveThreeDescription = grid[i][9];
-			row.ValveThree = grid[i][10];
-			row.ValveThreeRotation = grid[i][11];
-			row.ValveFourDescription = grid[i][12];
-			row.ValveFour = grid[i][13];
-			row.ValveFourRotation = grid[i][14];
-			row.ValveFiveDescription = grid[i][15];
-			row.ValveFive = grid[i][16];
-			row.ValveFiveRotation = grid[i][17];
+			row.NumberOfValves = grid[i][1];
+			row.MainGameDescription = grid[i][2];
+			row.MainScenarioDescription = grid[i][3];
+			row.ValveOneDescription = grid[i][4];
+			row.ValveOne = grid[i][5];
+			row.ValveOneRotation = grid[i][6];
+			row.ValveTwoDescription = grid[i][7];
+			row.ValveTwo = grid[i][8];
+			row.ValveTwoRotation = grid[i][9];
+			row.ValveThreeDescription = grid[i][10];
+			row.ValveThree = grid[i][11];
+			row.ValveThreeRotation = grid[i][12];
+			row.ValveFourDescription = grid[i][13];
+			row.ValveFour = grid[i][14];
+			row.ValveFourRotation = grid[i][15];
+			row.ValveFiveDescription = grid[i][16];
+			row.ValveFive = grid[i][17];
+			row.ValveFiveRotation = grid[i][18];
+
 
 			//Create the scenerio list to choose randomly from the available scenarios from the CSV rows.
 			DontDestroy.ScenarioList.Add(row.Scenario);
@@ -127,6 +133,15 @@ public class PickScenarioValves : MonoBehaviour
 	{
 		return rowList.FindAll(x => x.Scenario == find);
 	}
+	public Row Find_NumberOfValves(string find)
+	{
+		return rowList.Find(x => x.NumberOfValves == find);
+	}
+	public List<Row> FindAll_NumberOfValves(string find)
+	{
+		return rowList.FindAll(x => x.NumberOfValves == find);
+	}
+
 	public Row Find_MainGameDescription(string find)
 	{
 		return rowList.Find(x => x.MainGameDescription == find);

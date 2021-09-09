@@ -35,6 +35,7 @@ public class ScoringPPE : MonoBehaviour
         }    
         else if(DontDestroy.LevelChoice == "Hard")
         {
+            print("Number times checked is " + CheckAnswersPPEScript.NumberTimesChecked);
             DontDestroy.Score = DontDestroy.NumberCorrect * 5 + (CheckAnswersPPEScript.NumberTimesChecked - 1) * (-3);
             Debug.Log(DontDestroy.Score);
             text.text = "Score: " + DontDestroy.Score;

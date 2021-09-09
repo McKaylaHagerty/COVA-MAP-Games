@@ -30,6 +30,12 @@ public class Timer : MonoBehaviour
     public float flashRedSpeed = 3.0f;
 
     Color initialColor;
+    public AudioSource TimeRunningOutSound;
+
+    int timeSecond;
+    int lastTimeSecond;
+
+
 
 
     public void Start()
@@ -84,10 +90,39 @@ public class Timer : MonoBehaviour
 
     public void Update()  //Timer counts down in seconds.
     {
-        //Debug.Log($"My F**** Time Scale is: ${Time.timeScale}");
-        DontDestroy.timeLeft -= Time.deltaTime;
-        text.text = "" + Mathf.Round(DontDestroy.timeLeft);
+        if (Time.timeSinceLevelLoad > 0.1f)
+        {
+            DontDestroy.timeLeft -= Time.deltaTime;
+            if (DontDestroy.timeLeft <= 20.0f)
+            {
+                hard.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
 
+            if (DontDestroy.timeLeft <= 40.0f)
+            {
+                medium.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+
+            if (DontDestroy.timeLeft <= 60.0f)
+            {
+                easy.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+        }
+        timeSecond = Mathf.CeilToInt(DontDestroy.timeLeft);
+
+        text.text = "" + timeSecond;
+        //print(DontDestroy.timeLeft);
+        
+        if(DontDestroy.timeLeft < 5 && lastTimeSecond != 1) //////THIS ISNT WORKING
+        {
+            if (timeSecond != lastTimeSecond)
+            {
+                TimeRunningOutSound.Play();
+                lastTimeSecond = timeSecond;
+            }
+        }
+
+        // Flashing stuff done by Cal
         if (DontDestroy.timeLeft < redTime)
         {
             text.color = redColor;
@@ -95,6 +130,7 @@ public class Timer : MonoBehaviour
             if (DontDestroy.timeLeft < flashRedTime)
             {
                 text.color = ((Time.time * flashRedSpeed % 1) < 0.5f) ? Color.clear : redColor;
+
             }
         }
         else
@@ -102,20 +138,7 @@ public class Timer : MonoBehaviour
             text.color = initialColor;
         }
 
-        if(DontDestroy.timeLeft <=20.0f)
-        {
-            hard.fillAmount -= 1.0f / time * Time.deltaTime;
-        }
-
-        if (DontDestroy.timeLeft <= 40.0f)
-        {
-            medium.fillAmount -= 1.0f / time * Time.deltaTime;
-        }
-
-        if (DontDestroy.timeLeft <= 60.0f)
-        {
-            easy.fillAmount -= 1.0f / time * Time.deltaTime;
-        }
+        
 
         if (DontDestroy.timeLeft < 0 && Checked == false )  //When time runs out and checked = false...
         {

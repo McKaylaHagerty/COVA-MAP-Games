@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ValveSpot : MonoBehaviour
 {
-    public GameObject correctValve;
+    public List<GameObject> correctValves;
 
     // Start is called before the first frame update
     void Start()

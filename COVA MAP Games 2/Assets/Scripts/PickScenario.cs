@@ -19,8 +19,12 @@ public class PickScenario : MonoBehaviour
 
 		DontDestroy.ScenarioCounter = 0;
 
-		index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
-        DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
+		if (DontDestroy.GameChoice == "PPE")
+		{
+			index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.
+		}
+
+		DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
         Debug.Log(DontDestroy.ScenarioChoice);
 
@@ -43,9 +47,7 @@ public class PickScenario : MonoBehaviour
 
 		DontDestroy.ScenarioReminderText = Find_id(DontDestroy.ScenarioChoice).scenario;
 
-
 		AboutText.GetComponent<Text>().text = DontDestroy.AboutGameText;
-
     }
 
         public class Row

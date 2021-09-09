@@ -47,7 +47,7 @@ public class MoveSystem : MonoBehaviour
         if (other != null)
         {
             ValveSpot spot = other.GetComponent<ValveSpot>();
-            if (spot != null && spot.correctValve == gameObject)
+            if (spot != null && spot.correctValves.Contains(gameObject))
             {
                 // This is the right one
                 Debug.Log("The correct valve shows now");
