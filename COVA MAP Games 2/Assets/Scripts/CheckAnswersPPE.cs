@@ -17,10 +17,16 @@ public class CheckAnswersPPE: MonoBehaviour
 
     public int NumberTimesChecked = 0;    //Important to keep track of the number of times checked to calculate the score. Score is reduced each time the user hits check beyond the first time.
 
+    public GameObject PointDeduction;
+
+    public AudioSource Wrong;
 
 
     //Checks the active images (DressScript.check or the CheckList) against the correct answers (DontDestroy.CorrectList).
-
+    public void Start()
+    {
+        PointDeduction.SetActive(false);
+    }
     public void CheckingAnswers()
     {
         DestroyAllChildrenScript.DestroyChildren();       //Calls for all the children (check marks and x's) to be deleted. Will not delete anything until check button is clicked a second time.
@@ -50,7 +56,7 @@ public class CheckAnswersPPE: MonoBehaviour
                 CorrectIndicator.GetComponent<CorrectIncorect>().AssignCorrect();  //assign the prefab correct (check mark). 
                 CorrectIndicator.transform.SetParent(Panel.transform, false);
                 DontDestroy.NumberCorrect = DontDestroy.NumberCorrect + 1;
-                //Debug.Log("Number Correct: " + DontDestroy.NumberCorrect + " Number of Times Checked: " + NumberTimesChecked);
+                Debug.Log("Number Correct: " + DontDestroy.NumberCorrect + " Number of Times Checked: " + NumberTimesChecked);
             }
             else   //If the user answer is NOT on the correct list, assign the prefab incorrect (x).
             {
@@ -58,6 +64,11 @@ public class CheckAnswersPPE: MonoBehaviour
                 IncorrectIndicator = Instantiate(CorrectIncorrectPrefab, CheckList[i].transform.parent.localPosition, Quaternion.identity);    //Place prefab in the location of the item on ClickList's parent.
                 IncorrectIndicator.GetComponent<CorrectIncorect>().AssignIncorrect(); //assign the prefab incorrect (x).
                 IncorrectIndicator.transform.SetParent(Panel.transform, false);
+                if(DontDestroy.timeLeft>0.0f && NumberTimesChecked>1)
+                {
+                    PointDeduction.SetActive(true);
+                    Wrong.Play();
+                }
                 StartCoroutine(HideX(IncorrectIndicator));
             } 
         }
@@ -67,6 +78,8 @@ public class CheckAnswersPPE: MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Destroy(x);
+        PointDeduction.SetActive(false);
+
         //Debug.Log("got here");
     }
 }

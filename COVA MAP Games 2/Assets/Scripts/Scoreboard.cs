@@ -14,6 +14,10 @@ public class Scoreboard : MonoBehaviour
     public float TotalScoreWithTimeBonus = 0.0f;
     public GameObject TimeBonusGameObject;
 
+    public AudioSource CongratsAudio;
+    public AudioSource FailAudio;
+    public AudioSource TimeBonusAudio;
+
     void Start()
     {
         CongratsText.gameObject.SetActive(false);
@@ -74,12 +78,14 @@ public class Scoreboard : MonoBehaviour
             if (DontDestroy.NumberCorrect == 9)   //If all 9 are correct, show congrats text.
             {
                 CongratsText.gameObject.SetActive(true);
+                CongratsAudio.Play();
             }
 
             if (DontDestroy.NumberCorrect < 9)  //If any are incorrect, show fail text.
             {
                 FailText.gameObject.SetActive(true);
                 ScoreText.text = "Your Score: " + DontDestroy.Score;
+                FailAudio.Play();
             }
         }
         if (DontDestroy.GameChoice == "Valves")
@@ -95,6 +101,7 @@ public class Scoreboard : MonoBehaviour
         TimeBonusText.GetComponent<Text>().text = "+" + TimeBonus.ToString();
         TotalScoreWithTimeBonus = DontDestroy.Score + TimeBonus;
         TimeBonusGameObject.gameObject.SetActive(true);
+        TimeBonusAudio.Play();
         yield return new WaitForSeconds(2);
         TimeBonusGameObject.gameObject.SetActive(false);
         ScoreText.GetComponent<Text>().text = "Your Score: " + TotalScoreWithTimeBonus;

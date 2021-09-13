@@ -12,6 +12,13 @@ public class ValvesCSV : MonoBehaviour
 
 	public List<string> DescriptionsList;
 
+	public List<GameObject> ValveSpotsList1;
+	public List<GameObject> ValveSpotsList2;
+	public List<GameObject> ValveSpotsList3;
+	public List<GameObject> ValveSpotsList4;
+
+	public List<GameObject> ValveSpotsList;
+
 	public string CurrectValveDescription;
 
 	public int indexValve = 0;
@@ -22,16 +29,33 @@ public class ValvesCSV : MonoBehaviour
 
 	public GameObject NextButtonPanel;
 
+	public ShowCorrectScenario ShowCorrectScenarioScript; 
+
+
 
 
 	//Read in the csv.
 	void Start()
 	{
-		if(DontDestroy.BeenThroughFirstValveScenario == false)
+		ValveSpotsList.Clear();
+
+
+
+		if (DontDestroy.BeenThroughFirstValveScenario == false)
 		{
-			DescriptionsList.Clear();
 
 			Load(csv);
+
+			if (DontDestroy.ScenarioChoice == "1")
+			{
+				ValveSpotsList = ValveSpotsList1;
+			}
+
+			foreach (var x in ValveSpotsList)
+			{
+				x.GetComponent<Collider>().enabled = false;
+			}
+
 
 			DontDestroy.ScenarioCounter = 0;
 
@@ -39,16 +63,19 @@ public class ValvesCSV : MonoBehaviour
 
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
 
+			ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
+
 			CheckButtonPanel.SetActive(false);
 			NextButtonPanel.SetActive(false);
 
 			DontDestroy.BeenThroughFirstValveScenario = true;
+
+			ShowCorrectScenarioScript.DisplayCorrectScenario();
+
+
 		}
 		else
 		{
-			DescriptionsList.Clear();
-
-			Load(csv);
 
 			DontDestroy.ScenarioList.Remove(DontDestroy.ScenarioChoice);   //Remove the used scenario.
 
@@ -64,18 +91,61 @@ public class ValvesCSV : MonoBehaviour
 
 				DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 
+				print("Scenario Choice: " + DontDestroy.ScenarioChoice);
+
+				if (DontDestroy.ScenarioChoice == "1")
+				{
+					ValveSpotsList = ValveSpotsList1;
+				}
+
+				if (DontDestroy.ScenarioChoice == "2")
+				{
+					ValveSpotsList = ValveSpotsList2;
+				}
+
+				if (DontDestroy.ScenarioChoice == "3")
+				{
+					ValveSpotsList = ValveSpotsList3;
+				}
+
+				if (DontDestroy.ScenarioChoice == "4")
+				{
+					ValveSpotsList = ValveSpotsList4;
+				}
+
+				foreach (var x in ValveSpotsList)
+				{
+					x.GetComponent<Collider>().enabled = false;
+				}
+
+				Load(csv);
+
+				print("Length" + DescriptionsList.Count);
+				foreach (var x in DescriptionsList)
+				{
+					print("before " + x);
+				}
+
 				//Save about game info.
 				DontDestroy.AboutGameText = Find_Scenario(DontDestroy.ScenarioChoice).MainGameDescription;
 
 				//Save instructions info.
 				DontDestroy.InstructionsText = Find_Scenario(DontDestroy.ScenarioChoice).MainScenarioDescription;
 
+				DontDestroy.NumberOfValves = Find_Scenario(DontDestroy.ScenarioChoice).NumberOfValves;
+
 				AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
+
+				ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
 
 				CheckButtonPanel.SetActive(false);
 				NextButtonPanel.SetActive(false);
+
+				ShowCorrectScenarioScript.DisplayCorrectScenario();
 			}
+
 		}
+
 
 	}
 
@@ -83,14 +153,15 @@ public class ValvesCSV : MonoBehaviour
 	{
 		indexValve = indexValve + 1;
 
-		if (indexValve < 5)
+		if (indexValve < System.Convert.ToInt32(DontDestroy.NumberOfValves))
 		{
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[indexValve];
 
+			ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
 		}
 		else
         {
-			print("over 5");
+			print("end");
 			AboutValvePanel.SetActive(false);
 			CheckButtonPanel.SetActive(true);
 			NextButtonPanel.SetActive(true);
@@ -103,6 +174,7 @@ public class ValvesCSV : MonoBehaviour
 	public class Row
 	{
 		public string Scenario;
+		public string NumberOfValves;
 		public string MainGameDescription;
 		public string MainScenarioDescription;
 		public string ValveOneDescription;
@@ -144,28 +216,30 @@ public class ValvesCSV : MonoBehaviour
 		{
 			Row row = new Row();
 			row.Scenario = grid[i][0];
-			row.MainGameDescription = grid[i][1];
-			row.MainScenarioDescription = grid[i][2];
-			row.ValveOneDescription = grid[i][3];
-			row.ValveOne = grid[i][4];
-			row.ValveOneRotation = grid[i][5];
-			row.ValveTwoDescription = grid[i][6];
-			row.ValveTwo = grid[i][7];
-			row.ValveTwoRotation = grid[i][8];
-			row.ValveThreeDescription = grid[i][9];
-			row.ValveThree = grid[i][10];
-			row.ValveThreeRotation = grid[i][11];
-			row.ValveFourDescription = grid[i][12];
-			row.ValveFour = grid[i][13];
-			row.ValveFourRotation = grid[i][14];
-			row.ValveFiveDescription = grid[i][15];
-			row.ValveFive = grid[i][16];
-			row.ValveFiveRotation = grid[i][17];
+			row.NumberOfValves = grid[i][1];
+			row.MainGameDescription = grid[i][2];
+			row.MainScenarioDescription = grid[i][3];
+			row.ValveOneDescription = grid[i][4];
+			row.ValveOne = grid[i][5];
+			row.ValveOneRotation = grid[i][6];
+			row.ValveTwoDescription = grid[i][7];
+			row.ValveTwo = grid[i][8];
+			row.ValveTwoRotation = grid[i][9];
+			row.ValveThreeDescription = grid[i][10];
+			row.ValveThree = grid[i][11];
+			row.ValveThreeRotation = grid[i][12];
+			row.ValveFourDescription = grid[i][13];
+			row.ValveFour = grid[i][14];
+			row.ValveFourRotation = grid[i][15];
+			row.ValveFiveDescription = grid[i][16];
+			row.ValveFive = grid[i][17];
+			row.ValveFiveRotation = grid[i][18];
+
 
 			rowList.Add(row);
 
         }
-
+	
 		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveOneDescription);
 		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveTwoDescription);
 		DescriptionsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).ValveThreeDescription);
@@ -194,6 +268,14 @@ public class ValvesCSV : MonoBehaviour
 	public List<Row> FindAll_Scenario(string find)
 	{
 		return rowList.FindAll(x => x.Scenario == find);
+	}
+	public Row Find_NumberOfValves(string find)
+	{
+		return rowList.Find(x => x.NumberOfValves == find);
+	}
+	public List<Row> FindAll_NumberOfValves(string find)
+	{
+		return rowList.FindAll(x => x.NumberOfValves == find);
 	}
 	public Row Find_MainGameDescription(string find)
 	{
