@@ -15,7 +15,8 @@ public class MoveSystem : MonoBehaviour
 
     public ScoringValves ScoringValvesScript;
 
-
+    public GameObject prefab;
+    GameObject IncorrectIndicator;
 
     private void Start()
     {
@@ -53,7 +54,7 @@ public class MoveSystem : MonoBehaviour
                 // This is the right one
                 Debug.Log("INDEXVALVE: " + ValvesCSVScript.indexValve);
                 ValvesCSVScript.ValveSpotsList[ValvesCSVScript.indexValve].GetComponent<Collider>().enabled = false;
-                //Make correct valve show
+                ValvesCSVScript.ActualValveList[ValvesCSVScript.indexValve].SetActive(true);
 
 
                 DontDestroy.NumberCorrect = DontDestroy.NumberCorrect + 1;
@@ -70,6 +71,8 @@ public class MoveSystem : MonoBehaviour
                 // This is the wrong one
                 Debug.Log("An X shows now. This is incorrect.");
                 // Make X show
+                IncorrectIndicator = Instantiate(prefab, new Vector3(Cursor3D.Position.x - StartPosX, Cursor3D.Position.y - StartPosY, transform.position.z), Quaternion.identity);
+
 
                 DontDestroy.NumberTimesChecked = DontDestroy.NumberTimesChecked + 1;
 
@@ -77,10 +80,19 @@ public class MoveSystem : MonoBehaviour
 
                 //this.other = null;
 
+                StartCoroutine(HideX(IncorrectIndicator));
             }
         }
     }
-    
+
+    public IEnumerator HideX(GameObject x)
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(x);
+
+        //Debug.Log("got here");
+    }
+
     void OnTriggerEnter(Collider other)
     {
         print("on trigger enterrrrr");

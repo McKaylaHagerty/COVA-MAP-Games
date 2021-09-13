@@ -10,6 +10,9 @@ public class ScoringValves : MonoBehaviour
 
     public Text text;  //Score text.
 
+    public GameObject CheckButtonPanel;
+    public GameObject AboutValvePanel; 
+
     public void GetScore() 
     {
         if (DontDestroy.LevelChoice == "Easy")
@@ -19,7 +22,9 @@ public class ScoringValves : MonoBehaviour
             text.text = "Score: " + DontDestroy.Score;
             if (DontDestroy.NumberCorrect == System.Convert.ToInt32(DontDestroy.NumberOfValves) || DontDestroy.timeLeft < 0)   
             {
-                SceneManager.LoadScene("ScoreboardValves");
+                AboutValvePanel.SetActive(false);
+                CheckButtonPanel.SetActive(true);
+                TimerScript.PauseGame();
             }
         }
         else if (DontDestroy.LevelChoice == "Medium")
@@ -29,7 +34,9 @@ public class ScoringValves : MonoBehaviour
             text.text = "Score: " + DontDestroy.Score;
             if (DontDestroy.NumberCorrect == System.Convert.ToInt32(DontDestroy.NumberOfValves) || DontDestroy.timeLeft < 0)   
             {
-                SceneManager.LoadScene("ScoreboardValves");
+                AboutValvePanel.SetActive(false);
+                CheckButtonPanel.SetActive(true);
+                TimerScript.PauseGame();
             }
         }
         else if (DontDestroy.LevelChoice == "Hard")
@@ -39,7 +46,9 @@ public class ScoringValves : MonoBehaviour
             text.text = "Score: " + DontDestroy.Score;
             if (DontDestroy.NumberCorrect == System.Convert.ToInt32(DontDestroy.NumberOfValves) || DontDestroy.timeLeft < 0)   
             {
-                SceneManager.LoadScene("ScoreboardValves");
+                AboutValvePanel.SetActive(false);
+                CheckButtonPanel.SetActive(true);
+                TimerScript.PauseGame();
             }
         }
     }
