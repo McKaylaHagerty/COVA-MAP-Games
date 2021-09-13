@@ -18,6 +18,7 @@ public class Timer : MonoBehaviour
 
     public GameObject NextButtonPanel; 
     public GameObject CheckButtonPanel;
+    public GameObject AboutValvePanel;
     public GameObject[] LeftRightButtons;  //Array of the buttons that allow the user to switch between PPE.
 
     public Image hard;
@@ -113,7 +114,7 @@ public class Timer : MonoBehaviour
         text.text = "" + timeSecond;
         //print(DontDestroy.timeLeft);
         
-        if(DontDestroy.timeLeft < 5 && lastTimeSecond != 1) //////THIS ISNT WORKING
+        if(DontDestroy.timeLeft < 5 && lastTimeSecond != 1) 
         {
             if (timeSecond != lastTimeSecond)
             {
@@ -153,6 +154,14 @@ public class Timer : MonoBehaviour
                 {
                     x.SetActive(false);
                 }
+            }
+
+            if (DontDestroy.GameChoice == "Valves")
+            {
+                //CheckAnswersPPEScript.CheckingAnswers();
+                Checked = true;  //So that the if condition is not met again.
+                AboutValvePanel.SetActive(false);
+                CheckButtonPanel.SetActive(true);
             }
         }
     }

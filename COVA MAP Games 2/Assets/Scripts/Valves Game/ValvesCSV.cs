@@ -19,6 +19,13 @@ public class ValvesCSV : MonoBehaviour
 
 	public List<GameObject> ValveSpotsList;
 
+	public List<GameObject> ActualValveList1;
+	public List<GameObject> ActualValveList2;
+	public List<GameObject> ActualValveList3;
+	public List<GameObject> ActualValveList4;
+
+	public List<GameObject> ActualValveList;
+
 	public string CurrectValveDescription;
 
 	public int indexValve = 0;
@@ -32,12 +39,11 @@ public class ValvesCSV : MonoBehaviour
 	public ShowCorrectScenario ShowCorrectScenarioScript; 
 
 
-
-
 	//Read in the csv.
 	void Start()
 	{
 		ValveSpotsList.Clear();
+		ActualValveList.Clear();
 
 
 
@@ -49,6 +55,12 @@ public class ValvesCSV : MonoBehaviour
 			if (DontDestroy.ScenarioChoice == "1")
 			{
 				ValveSpotsList = ValveSpotsList1;
+				ActualValveList = ActualValveList1;
+			}
+
+			foreach (var x in ActualValveList)
+			{
+				x.SetActive(false);
 			}
 
 			foreach (var x in ValveSpotsList)
@@ -56,10 +68,7 @@ public class ValvesCSV : MonoBehaviour
 				x.GetComponent<Collider>().enabled = false;
 			}
 
-
 			DontDestroy.ScenarioCounter = 0;
-
-
 
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
 
@@ -71,7 +80,6 @@ public class ValvesCSV : MonoBehaviour
 			DontDestroy.BeenThroughFirstValveScenario = true;
 
 			ShowCorrectScenarioScript.DisplayCorrectScenario();
-
 
 		}
 		else
@@ -96,21 +104,30 @@ public class ValvesCSV : MonoBehaviour
 				if (DontDestroy.ScenarioChoice == "1")
 				{
 					ValveSpotsList = ValveSpotsList1;
+					ActualValveList = ActualValveList1;
 				}
 
 				if (DontDestroy.ScenarioChoice == "2")
 				{
 					ValveSpotsList = ValveSpotsList2;
+					ActualValveList = ActualValveList2;
 				}
 
 				if (DontDestroy.ScenarioChoice == "3")
 				{
 					ValveSpotsList = ValveSpotsList3;
+					ActualValveList = ActualValveList3;
 				}
 
 				if (DontDestroy.ScenarioChoice == "4")
 				{
 					ValveSpotsList = ValveSpotsList4;
+					ActualValveList = ActualValveList4;
+				}
+
+				foreach (var x in ActualValveList)
+				{
+					x.SetActive(false);
 				}
 
 				foreach (var x in ValveSpotsList)
@@ -123,7 +140,7 @@ public class ValvesCSV : MonoBehaviour
 				print("Length" + DescriptionsList.Count);
 				foreach (var x in DescriptionsList)
 				{
-					print("before " + x);
+					print("before: " + x);
 				}
 
 				//Save about game info.
@@ -146,7 +163,6 @@ public class ValvesCSV : MonoBehaviour
 
 		}
 
-
 	}
 
 	public void DisplayCorrectValveDescription()
@@ -164,7 +180,7 @@ public class ValvesCSV : MonoBehaviour
 			print("end");
 			AboutValvePanel.SetActive(false);
 			CheckButtonPanel.SetActive(true);
-			NextButtonPanel.SetActive(true);
+			//NextButtonPanel.SetActive(true);
 		}
 
 		print(indexValve);
