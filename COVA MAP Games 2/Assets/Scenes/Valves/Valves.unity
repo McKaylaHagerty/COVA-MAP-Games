@@ -361,7 +361,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68059117}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -8, y: 69, z: 64.891945}
+  m_LocalPosition: {x: -8, y: 64, z: 64.891945}
   m_LocalScale: {x: 14.203759, y: 14.203759, z: 14.203759}
   m_Children: []
   m_Father: {fileID: 663191207}
@@ -408,7 +408,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d5c8f685ea63504ea6a729bafeed508, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4aa325fef8c61804ebcd1831769704a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1282,7 +1282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210912934}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -8.73, y: 6.2581325, z: -1.7}
+  m_LocalPosition: {x: -9.6, y: 6.2581325, z: -2.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1097227460}
@@ -2220,7 +2220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134, y: -35.2}
+  m_AnchoredPosition: {x: -207, y: -25}
   m_SizeDelta: {x: 187.1322, y: 43.4786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &620698482
@@ -2332,8 +2332,8 @@ MonoBehaviour:
   flipindex: 1
   correctFlipIndex: 0
   image: {fileID: 68059119}
-  highToLowSprite: {fileID: 21300000, guid: 0d5c8f685ea63504ea6a729bafeed508, type: 3}
-  lowToHighSprite: {fileID: 21300000, guid: 43c506c82169d114f8c5e39c24e61366, type: 3}
+  highToLowSprite: {fileID: 21300000, guid: 4aa325fef8c61804ebcd1831769704a7, type: 3}
+  lowToHighSprite: {fileID: 21300000, guid: e4dbf71264c0aba4286a831b1c928519, type: 3}
 --- !u!1 &624458547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,7 +2371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 267.7, y: -35.2}
+  m_AnchoredPosition: {x: -227, y: 50}
   m_SizeDelta: {x: 187.1322, y: 43.4786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624458549
@@ -2389,8 +2389,8 @@ MonoBehaviour:
   flipindex: 1
   correctFlipIndex: 0
   image: {fileID: 1227904879}
-  highToLowSprite: {fileID: 21300000, guid: 0d5c8f685ea63504ea6a729bafeed508, type: 3}
-  lowToHighSprite: {fileID: 21300000, guid: 43c506c82169d114f8c5e39c24e61366, type: 3}
+  highToLowSprite: {fileID: 21300000, guid: 4aa325fef8c61804ebcd1831769704a7, type: 3}
+  lowToHighSprite: {fileID: 21300000, guid: e4dbf71264c0aba4286a831b1c928519, type: 3}
 --- !u!114 &624458550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4406,7 +4406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840186250}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -22.9, y: 38.07239, z: -74.25377}
+  m_LocalPosition: {x: -19.7, y: 48.6, z: -74.25377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6961548573272634502}
@@ -5618,7 +5618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227904877}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -8.73, y: 6.2581325, z: 33.2}
+  m_LocalPosition: {x: -8.73, y: 54, z: 33.2}
   m_LocalScale: {x: 14.203759, y: 14.203759, z: 14.203759}
   m_Children: []
   m_Father: {fileID: 972215122240008873}
@@ -5665,7 +5665,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d5c8f685ea63504ea6a729bafeed508, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4aa325fef8c61804ebcd1831769704a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6642,7 +6642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 267.7, y: -35.2}
+  m_AnchoredPosition: {x: 266, y: -25}
   m_SizeDelta: {x: 187.1322, y: 43.4786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563102985
@@ -10055,6 +10055,7 @@ MonoBehaviour:
   TimerScript: {fileID: 780634676}
   text: {fileID: 1679250414}
   CheckButtonPanel: {fileID: 800371812}
+  NextButtonPanel: {fileID: 648157003}
   AboutValvePanel: {fileID: 1423122852}
 --- !u!4 &2105953752
 Transform:

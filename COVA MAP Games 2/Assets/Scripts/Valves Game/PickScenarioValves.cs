@@ -14,7 +14,7 @@ public class PickScenarioValves : MonoBehaviour
 	//Read in the csv.
 	void Start()
 	{
-
+		DontDestroy.ScenarioList.Clear();
 		Load(csv);
 		index = 0;
 		//index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);  //Randomly choose a scenario.

@@ -161,7 +161,8 @@ public class Timer : MonoBehaviour
                 //CheckAnswersPPEScript.CheckingAnswers();
                 Checked = true;  //So that the if condition is not met again.
                 AboutValvePanel.SetActive(false);
-                CheckButtonPanel.SetActive(true);
+                CheckButtonPanel.SetActive(false);
+                DontDestroy.NumberCorrect = 0;
             }
         }
     }

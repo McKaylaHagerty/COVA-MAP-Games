@@ -7,8 +7,16 @@ public class Scoreboard : MonoBehaviour
 {
 
     public Text ScoreText;
+
+    //PPE
     public Text CongratsText;
     public Text FailText;
+
+    //Valves
+    public Text FailOutOfTimeText;
+    public Text FailDirectionsText;
+
+
     public float TimeBonus = 0.0f;
     public Text TimeBonusText;
     public float TotalScoreWithTimeBonus = 0.0f;
@@ -18,11 +26,29 @@ public class Scoreboard : MonoBehaviour
     public AudioSource FailAudio;
     public AudioSource TimeBonusAudio;
 
+
+
     void Start()
     {
+        
+        
         CongratsText.gameObject.SetActive(false);
-        FailText.gameObject.SetActive(false);
         TimeBonusGameObject.gameObject.SetActive(false);
+
+        if(DontDestroy.GameChoice=="PPE")
+        {
+            FailText.gameObject.SetActive(false);
+        }
+
+        if (DontDestroy.GameChoice == "Valves")
+        {
+            FailOutOfTimeText.gameObject.SetActive(false);
+            FailDirectionsText.gameObject.SetActive(false);
+        }
+            
+        
+        
+        
 
         Time.timeScale = 1;
 
@@ -81,6 +107,7 @@ public class Scoreboard : MonoBehaviour
                 CongratsAudio.Play();
             }
 
+
             if (DontDestroy.NumberCorrect < 9)  //If any are incorrect, show fail text.
             {
                 FailText.gameObject.SetActive(true);
@@ -88,9 +115,80 @@ public class Scoreboard : MonoBehaviour
                 FailAudio.Play();
             }
         }
+
+
+
+
+
+
         if (DontDestroy.GameChoice == "Valves")
         {
-            ScoreText.text = "Your Score: " + DontDestroy.Score;
+            print("Time left: " + DontDestroy.timeLeft);
+
+            if (DontDestroy.LevelChoice == "Hard" && DontDestroy.NumberCorrect == 1)
+            {
+                TimeBonus = 55.0f;
+
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+
+            }
+
+            if (DontDestroy.LevelChoice == "Medium" && DontDestroy.NumberCorrect == 1 && DontDestroy.timeLeft >= 20.0)
+            {
+                TimeBonus = 55.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Medium" && DontDestroy.NumberCorrect == 1 && DontDestroy.timeLeft < 20.0)
+            {
+                TimeBonus = 45.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Easy" && DontDestroy.NumberCorrect == 1 && DontDestroy.timeLeft >= 40.0)
+            {
+                TimeBonus = 55.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Easy" && DontDestroy.NumberCorrect == 1 && DontDestroy.timeLeft < 40.0 && DontDestroy.timeLeft >= 20.0)
+            {
+                TimeBonus = 45.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Easy" && DontDestroy.NumberCorrect == 1 && DontDestroy.timeLeft < 20.0)
+            {
+                TimeBonus = 35.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+
+            if (DontDestroy.NumberCorrect == 1)   //If all are correct, show congrats text.
+            {
+                CongratsText.gameObject.SetActive(true);
+                CongratsAudio.Play();
+            }
+
+            if (DontDestroy.NumberCorrect == 0 && DontDestroy.timeLeft <= 0.0 )  //If any are incorrect, show fail text.
+            {
+                FailOutOfTimeText.gameObject.SetActive(true);
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                FailAudio.Play();
+            }
+
+            if (DontDestroy.NumberCorrect == 0 && DontDestroy.timeLeft > 0.0)  //If any are incorrect, show fail text.
+            {
+                FailDirectionsText.gameObject.SetActive(true);
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                FailAudio.Play();
+            }
         }
     }
 

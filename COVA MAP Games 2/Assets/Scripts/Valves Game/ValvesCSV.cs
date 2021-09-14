@@ -179,6 +179,7 @@ public class ValvesCSV : MonoBehaviour
         {
 			print("end");
 			AboutValvePanel.SetActive(false);
+
 			CheckButtonPanel.SetActive(true);
 			//NextButtonPanel.SetActive(true);
 		}

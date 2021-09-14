@@ -14,15 +14,17 @@ public class CheckButton : MonoBehaviour
         if (CheckFlipDirections())
         {
             print("You are the winner");
+            DontDestroy.NumberCorrect = 1;
         }
         else
         {
             print("You are the loser");
+            DontDestroy.NumberCorrect = 0;
         }
-        NextButtonPanel.SetActive(true);
+        SceneManager.LoadScene("ScoreboardValves");
     }
 
-    private bool CheckFlipDirections()
+    public bool CheckFlipDirections()
     {
         FlipDirection[] flipDirections = FindObjectsOfType<FlipDirection>();
         if (flipDirections.Length == 0) return true;
