@@ -49,13 +49,16 @@ public class MoveSystem : MonoBehaviour
         if (other != null)
         {
             ValveSpot spot = other.GetComponent<ValveSpot>();
-            if (spot != null && spot.correctValves.Contains(gameObject))
+            if (spot != null && spot.Contains(gameObject, out ValveSpot.CorrectValveStruct result))
             {
                 // This is the right one
                 Debug.Log("INDEXVALVE: " + ValvesCSVScript.indexValve);
                 ValvesCSVScript.ValveSpotsList[ValvesCSVScript.indexValve].GetComponent<Collider>().enabled = false;
-                ValvesCSVScript.ActualValveList[ValvesCSVScript.indexValve].SetActive(true);
 
+
+
+                //ValvesCSVScript.ActualValveList[ValvesCSVScript.indexValve].SetActive(true);
+                result.objectToEnable.SetActive(true);
 
                 DontDestroy.NumberCorrect = DontDestroy.NumberCorrect + 1;
 

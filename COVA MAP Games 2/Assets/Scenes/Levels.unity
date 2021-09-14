@@ -807,6 +807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c236a5112c91e46ad599215bdeb70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highToLowSprite: {fileID: 21300000, guid: 0d5c8f685ea63504ea6a729bafeed508, type: 3}
+  lowToHighSprite: {fileID: 21300000, guid: 43c506c82169d114f8c5e39c24e61366, type: 3}
 --- !u!1 &677255049
 GameObject:
   m_ObjectHideFlags: 0
