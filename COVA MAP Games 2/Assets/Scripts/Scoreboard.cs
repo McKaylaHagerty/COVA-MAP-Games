@@ -30,12 +30,11 @@ public class Scoreboard : MonoBehaviour
 
     void Start()
     {
-        
-        
-        CongratsText.gameObject.SetActive(false);
-        TimeBonusGameObject.gameObject.SetActive(false);
 
-        if(DontDestroy.GameChoice=="PPE")
+        TimeBonusGameObject.gameObject.SetActive(false);
+        CongratsText.gameObject.SetActive(false);
+
+        if (DontDestroy.GameChoice=="PPE")
         {
             FailText.gameObject.SetActive(false);
         }

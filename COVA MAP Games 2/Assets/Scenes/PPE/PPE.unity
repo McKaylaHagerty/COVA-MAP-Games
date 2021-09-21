@@ -2919,7 +2919,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.728
+  m_Volume: 0.14
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3528,7 +3528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.21991, y: -23.25}
+  m_AnchoredPosition: {x: -24.21997, y: -23.25}
   m_SizeDelta: {x: 48.44, y: 46.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &725566088
@@ -4227,6 +4227,7 @@ MonoBehaviour:
   ScoringPPEScript: {fileID: 330256905}
   NextButtonPanel: {fileID: 217747406}
   CheckButtonPanel: {fileID: 417449641}
+  AboutValvePanel: {fileID: 0}
   LeftRightButtons:
   - {fileID: 682022673}
   - {fileID: 111200266}
@@ -4280,7 +4281,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14323f84e93b148b9a2e2cfa7f8c87a1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 0.89
   Loop: 0
   Mute: 0
@@ -8854,7 +8855,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a079f8e5df9f647c49c334cbdc117edb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.067
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8971,7 +8972,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d8b719ef1c3254c97b2c5b785c2d5fd3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.084
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9067,7 +9068,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 13b481262ca11bc4cbfa819b6dfe28cc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9163,7 +9164,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 45becf0029f4a4a8cb0ff75ad5191492, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.153
+  m_Volume: 0.1
   m_Pitch: 1.4
   Loop: 0
   Mute: 0
