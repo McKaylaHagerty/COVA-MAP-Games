@@ -27,6 +27,9 @@ public class DontDestroy : MonoBehaviour
     public static int Score = 0;
     public static int NumberCorrect;
     public static int NumberTimesChecked; //used for valve game
+    public static int[] NumberTimesCheckedPerValveArray = new int[5];
+    public static int NumberTimesCheckedPerValve=0;
+    public static bool CaughtGuessing = false;
 
     public static bool BeenThroughFirstValveScenario;
 

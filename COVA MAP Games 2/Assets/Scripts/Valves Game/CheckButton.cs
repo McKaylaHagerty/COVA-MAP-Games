@@ -7,6 +7,7 @@ public class CheckButton : MonoBehaviour
 {
     public GameObject NextButtonPanel;
 
+
     // Start is called before the first frame update
     public void CheckDirections()
     {

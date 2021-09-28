@@ -55,7 +55,8 @@ public class MoveSystem : MonoBehaviour
                 Debug.Log("INDEXVALVE: " + ValvesCSVScript.indexValve);
                 ValvesCSVScript.ValveSpotsList[ValvesCSVScript.indexValve].GetComponent<Collider>().enabled = false;
 
-
+                DontDestroy.NumberTimesCheckedPerValve = DontDestroy.NumberTimesChecked - DontDestroy.NumberTimesCheckedPerValve;
+                DontDestroy.NumberTimesCheckedPerValveArray[ValvesCSVScript.indexValve] = (DontDestroy.NumberTimesCheckedPerValve);
 
                 //ValvesCSVScript.ActualValveList[ValvesCSVScript.indexValve].SetActive(true);
                 result.objectToEnable.SetActive(true);
@@ -76,8 +77,12 @@ public class MoveSystem : MonoBehaviour
                 // Make X show
                 IncorrectIndicator = Instantiate(prefab, new Vector3(Cursor3D.Position.x - StartPosX, Cursor3D.Position.y - StartPosY, transform.position.z), Quaternion.identity);
 
-
                 DontDestroy.NumberTimesChecked = DontDestroy.NumberTimesChecked + 1;
+
+                if(DontDestroy.NumberTimesChecked == 3)
+                {
+                    DontDestroy.NumberTimesCheckedPerValveArray[ValvesCSVScript.indexValve] = 3;
+                }
 
                 ScoringValvesScript.GetScore();
 

@@ -10,6 +10,10 @@ public class ScoringPPE : MonoBehaviour
     public Timer TimerScript; 
 
     public Text text;  //Score text.
+    public void Start()
+    {
+        DontDestroy.NumberTimesChecked = 0;
+    }
 
     public void GetScore()  //5 points for each correct out of the 9, 55 points for hard, 45 points for medium, 35 points for easy level, -3 points for each check after the first check
     {
