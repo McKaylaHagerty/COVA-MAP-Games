@@ -12,6 +12,13 @@ public class ValvesCSV : MonoBehaviour
 
 	public List<string> DescriptionsList;
 
+	public List<GameObject> DropHereList1;
+	public List<GameObject> DropHereList2;
+	public List<GameObject> DropHereList3;
+	public List<GameObject> DropHereList4;
+
+	public List<GameObject> DropHereList;
+
 	public List<GameObject> ValveSpotsList1;
 	public List<GameObject> ValveSpotsList2;
 	public List<GameObject> ValveSpotsList3;
@@ -42,6 +49,7 @@ public class ValvesCSV : MonoBehaviour
 	//Read in the csv.
 	void Start()
 	{
+		DropHereList.Clear();
 		ValveSpotsList.Clear();
 		ActualValveList.Clear();
 
@@ -54,6 +62,7 @@ public class ValvesCSV : MonoBehaviour
 
 			if (DontDestroy.ScenarioChoice == "1")
 			{
+				DropHereList = DropHereList1;
 				ValveSpotsList = ValveSpotsList1;
 				ActualValveList = ActualValveList1;
 			}
@@ -68,11 +77,17 @@ public class ValvesCSV : MonoBehaviour
 				x.GetComponent<Collider>().enabled = false;
 			}
 
+			foreach (var x in DropHereList)
+			{
+				x.SetActive(false);
+			}
+
 			DontDestroy.ScenarioCounter = 0;
 
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[index];
 
 			ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
+			DropHereList[indexValve].SetActive(true);
 
 			CheckButtonPanel.SetActive(false);
 			NextButtonPanel.SetActive(false);
@@ -105,27 +120,36 @@ public class ValvesCSV : MonoBehaviour
 				{
 					ValveSpotsList = ValveSpotsList1;
 					ActualValveList = ActualValveList1;
+					DropHereList = DropHereList1;
 				}
 
 				if (DontDestroy.ScenarioChoice == "2")
 				{
 					ValveSpotsList = ValveSpotsList2;
 					ActualValveList = ActualValveList2;
+					DropHereList = DropHereList2;
 				}
 
 				if (DontDestroy.ScenarioChoice == "3")
 				{
 					ValveSpotsList = ValveSpotsList3;
 					ActualValveList = ActualValveList3;
+					DropHereList = DropHereList3;
 				}
 
 				if (DontDestroy.ScenarioChoice == "4")
 				{
 					ValveSpotsList = ValveSpotsList4;
 					ActualValveList = ActualValveList4;
+					DropHereList = DropHereList4;
 				}
 
 				foreach (var x in ActualValveList)
+				{
+					x.SetActive(false);
+				}
+
+				foreach (var x in DropHereList)
 				{
 					x.SetActive(false);
 				}
@@ -155,6 +179,8 @@ public class ValvesCSV : MonoBehaviour
 
 				ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
 
+				DropHereList[indexValve].SetActive(true);
+
 				CheckButtonPanel.SetActive(false);
 				NextButtonPanel.SetActive(false);
 
@@ -167,13 +193,17 @@ public class ValvesCSV : MonoBehaviour
 
 	public void DisplayCorrectValveDescription()
 	{
+		DropHereList[indexValve].SetActive(false);
+		
 		indexValve = indexValve + 1;
+
 
 		if (indexValve < System.Convert.ToInt32(DontDestroy.NumberOfValves))
 		{
 			AboutValveText.GetComponent<Text>().text = DescriptionsList[indexValve];
 
 			ValveSpotsList[indexValve].GetComponent<Collider>().enabled = true;
+			DropHereList[indexValve].SetActive(true);
 		}
 		else
         {
