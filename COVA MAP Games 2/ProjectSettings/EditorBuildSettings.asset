@@ -35,12 +35,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Valves/Valves.unity
     guid: aa0e522b6ae22a342a9fe35ce19ad671
+  - enabled: 1
+    path: Assets/Scenes/hazards/ScoreboardHazards.unity
+    guid: 32ed75c2040f185428acafbcad6385ec
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/hazards/HazardsChecklist.unity
+    guid: bac07c89a153f2847a06a2cd78dfb550
+  - enabled: 1
+    path: Assets/Scenes/hazards/AboutHazards.unity
+    guid: cc5e206059d72ce44aaaf20e85cd566a
+  - enabled: 1
+    path: Assets/Scenes/hazards/hazards.unity
+    guid: 53213224a31d5044e93d2416b55eb7cd
   - enabled: 1
     path: Assets/Scenes/Valves/ScoreboardValves.unity
     guid: 76334d882221b2a4e92583f3c2865c37

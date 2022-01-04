@@ -12,6 +12,8 @@ public class DontDestroy : MonoBehaviour
 
     public static List<string> CorrectList = new List<string>();
 
+    public static List<string> CorrectHazardsList = new List<string>();
+
     public static string ScenarioChoice;
     public static List<string> ScenarioList = new List<string>();
     

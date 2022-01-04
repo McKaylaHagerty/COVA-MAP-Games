@@ -34,6 +34,11 @@ public class GameScenarioInfoPanels : MonoBehaviour
         {
             ScenarioText.GetComponent<Text>().text = "Scenario: " + DontDestroy.ScenarioCounter + "/4";
         }
+
+        if (DontDestroy.GameChoice == "Hazards")
+        {
+            ScenarioText.GetComponent<Text>().text = "Scenario: " + DontDestroy.ScenarioCounter + "/4";
+        }
     }
 
     public void Update()
@@ -42,7 +47,7 @@ public class GameScenarioInfoPanels : MonoBehaviour
         {
             AboutTextPanel.SetActive(false);  //Set the panel with the scenario text inactive.
 
-            if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
+            if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves" || DontDestroy.GameChoice == "Hazards")
             {
                 ReadyToPlayAudioScript.ReadyToPlay();
             }

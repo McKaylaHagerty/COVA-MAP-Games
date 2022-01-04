@@ -29,13 +29,13 @@ public class Scoreboard : MonoBehaviour
 
 
 
-    void Start()
+    public void Start()
     {
 
         TimeBonusGameObject.gameObject.SetActive(false);
         CongratsText.gameObject.SetActive(false);
 
-        if (DontDestroy.GameChoice=="PPE")
+        if (DontDestroy.GameChoice=="PPE" || DontDestroy.GameChoice == "Hazards")
         {
             FailText.gameObject.SetActive(false);
         }
@@ -117,7 +117,69 @@ public class Scoreboard : MonoBehaviour
             }
         }
 
+        if (DontDestroy.GameChoice == "Hazards")
+        {
+            print(DontDestroy.timeLeft);
 
+            if (DontDestroy.LevelChoice == "Hard" && DontDestroy.NumberCorrect == 12)
+            {
+                TimeBonus = 55.0f;
+
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+
+            }
+
+            if (DontDestroy.LevelChoice == "Medium" && DontDestroy.NumberCorrect == 12 && DontDestroy.timeLeft >= 10.0)
+            {
+                TimeBonus = 55.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Medium" && DontDestroy.NumberCorrect == 12 && DontDestroy.timeLeft < 10.0)
+            {
+                TimeBonus = 45.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Easy" && DontDestroy.NumberCorrect == 12 && DontDestroy.timeLeft >= 15.0)
+            {
+                TimeBonus = 55.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Easy" && DontDestroy.NumberCorrect == 12 && DontDestroy.timeLeft < 15.0 && DontDestroy.timeLeft >= 10.0)
+            {
+                TimeBonus = 45.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+            if (DontDestroy.LevelChoice == "Easy" && DontDestroy.NumberCorrect == 12 && DontDestroy.timeLeft < 10.0)
+            {
+                TimeBonus = 35.0f;
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                StartCoroutine(GetScoreWithBonus());
+            }
+
+
+            if (DontDestroy.NumberCorrect ==  12)   //If all 9 are correct, show congrats text.
+            {
+                CongratsText.gameObject.SetActive(true);
+                CongratsAudio.Play();
+            }
+
+
+            if (DontDestroy.NumberCorrect < 12)  //If any are incorrect, show fail text.
+            {
+                FailText.gameObject.SetActive(true);
+                ScoreText.text = "Your Score: " + DontDestroy.Score;
+                FailAudio.Play();
+            }
+        }
 
 
 

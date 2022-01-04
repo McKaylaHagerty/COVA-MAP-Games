@@ -32,8 +32,17 @@ public class ReadyToPlayAudio : MonoBehaviour
     public void ReadyToPlay()
     {
         StopBackGroundMusic();
-        StartCoroutine(CountDownDelay());
 
+        if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
+        {
+            StartCoroutine(CountDownDelay());
+        }
+
+        if (DontDestroy.GameChoice == "Hazards")
+        {
+            InGameMusic.Play();
+        }
+        
     }
 
     public void StopBackGroundMusic()

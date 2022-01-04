@@ -85,7 +85,7 @@ public class ButtonControls : MonoBehaviour
     {   
         GameChoice = "Hazards";
         DontDestroy.GameChoice = GameChoice;
-        SceneManager.LoadScene("About");
+        SceneManager.LoadScene("AboutHazards");
         Debug.Log(DontDestroy.GameChoice);
     }
 
@@ -124,6 +124,12 @@ public class ButtonControls : MonoBehaviour
     public void AboutNextButtonValves() ///also used on scoreboard 
     {
         SceneManager.LoadScene("Valves");
+        Debug.Log("Game Loaded");
+    }
+
+    public void AboutNextButtonHazards() ///also used on scoreboard 
+    {
+        SceneManager.LoadScene("Hazards");
         Debug.Log("Game Loaded");
     }
 

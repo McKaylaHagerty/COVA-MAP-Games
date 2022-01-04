@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour
 
         initialColor = text.color;
 
-        if (DontDestroy.GameChoice == "PPE")
+        if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Hazards")
         {
             CheckButtonPanel.SetActive(true);   //Check button is active to start. Will disappear when time runs out.
         }
@@ -84,13 +84,34 @@ public class Timer : MonoBehaviour
             DontDestroy.timeLeft = 20.0f;  //To be changed back to 20.0
             easy.enabled = false;
             medium.enabled = false;
-        }       
+        }
+
+        //Specific to Hazards game
+
+        else if (DontDestroy.LevelChoice == "Easy" && DontDestroy.GameChoice == "Hazards")
+        {
+            DontDestroy.timeLeft = 20.0f;
+        }
+
+        else if (DontDestroy.LevelChoice == "Medium" && DontDestroy.GameChoice == "Hazards")
+        {
+            DontDestroy.timeLeft = 15.0f;
+            easy.enabled = false;
+        }
+
+        else if (DontDestroy.LevelChoice == "Hard" && DontDestroy.GameChoice == "Hazards")
+        {
+            DontDestroy.timeLeft = 10.0f;  
+            easy.enabled = false;
+            medium.enabled = false;
+        }
     }
 
     bool Checked = false;  //Bool need to use as a condition to stop the update method.
 
     public void Update()  //Timer counts down in seconds.
-    {
+    { 
+
         if (Time.timeSinceLevelLoad > 0.1f)
         {
             DontDestroy.timeLeft -= Time.deltaTime;
@@ -109,6 +130,9 @@ public class Timer : MonoBehaviour
                 easy.fillAmount -= 1.0f / time * Time.deltaTime;
             }
         }
+
+        
+
         timeSecond = Mathf.CeilToInt(DontDestroy.timeLeft);
 
         text.text = "" + timeSecond;
@@ -156,7 +180,7 @@ public class Timer : MonoBehaviour
                 }
             }
 
-            if (DontDestroy.GameChoice == "Valves")
+            if (DontDestroy.GameChoice == "Valves" || DontDestroy.GameChoice == "Hazards")
             {
                 //CheckAnswersPPEScript.CheckingAnswers();
                 Checked = true;  //So that the if condition is not met again.
