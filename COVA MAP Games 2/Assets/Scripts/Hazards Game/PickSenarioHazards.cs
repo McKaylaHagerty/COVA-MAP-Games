@@ -15,6 +15,8 @@ public class PickSenarioHazards : MonoBehaviour
 	public void Start()
 	{
 		DontDestroy.ScenarioList.Clear();
+		DontDestroy.CorrectHazardsList.Clear();
+
 		Load(csv);
 		index = 0;
 		

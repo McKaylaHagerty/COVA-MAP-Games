@@ -31,13 +31,17 @@ public class NewScenarioHazard : MonoBehaviour
     public void PickNewScenario()
     {
 
-        if (DontDestroy.ScenarioList.Count > 0)   //If there are scenarios left, pick a new one and reload the PPE Game scene.
+        if (DontDestroy.ScenarioList.Count > 0)   //If there are scenarios left, pick a new one and reload the Hazards Game scene.
         {
-            index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);
+			DontDestroy.CorrectHazardsList.Clear();
+
+			index = Random.Range(0, DontDestroy.ScenarioList.Count - 1);
             DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
             DontDestroy.InstructionsText = DontDestroy.InstructionsList[index];
 
-            DontDestroy.CorrectHazardsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).Hazard1);
+			Debug.Log("Scenario Choice:" + DontDestroy.ScenarioChoice);
+
+			DontDestroy.CorrectHazardsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).Hazard1);
             DontDestroy.CorrectHazardsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).Hazard2);
             DontDestroy.CorrectHazardsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).Hazard3);
             DontDestroy.CorrectHazardsList.Add(Find_Scenario(DontDestroy.ScenarioChoice).Hazard4);
