@@ -99,12 +99,17 @@ public class Timer : MonoBehaviour
         if (DontDestroy.LevelChoice == "Easy" && DontDestroy.GameChoice == "Hazards")
         {
             DontDestroy.timeLeft = 15.0f;
+            easy.enabled = false;
+            medium.enabled = false;
+            hard.enabled = false;
         }
 
         else if (DontDestroy.LevelChoice == "Medium" && DontDestroy.GameChoice == "Hazards")
         {
             DontDestroy.timeLeft = 10.0f;
             easy.enabled = false;
+            medium.enabled = false;
+            hard.enabled = false;
         }
 
         else if (DontDestroy.LevelChoice == "Hard" && DontDestroy.GameChoice == "Hazards")
@@ -112,6 +117,7 @@ public class Timer : MonoBehaviour
             DontDestroy.timeLeft = 5.0f;
             easy.enabled = false;
             medium.enabled = false;
+            hard.enabled = false;
         }
 
         //Specific to Hazards game

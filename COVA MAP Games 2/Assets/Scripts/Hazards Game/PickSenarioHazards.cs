@@ -23,7 +23,7 @@ public class PickSenarioHazards : MonoBehaviour
 		DontDestroy.ScenarioChoice = DontDestroy.ScenarioList[index];
 		DontDestroy.InstructionsText = DontDestroy.InstructionsList[index];
 
-		Debug.Log("Scenario Choice:" + DontDestroy.ScenarioChoice);
+		Debug.Log("Scenario Choice: " + DontDestroy.ScenarioChoice);
 
 		//Save about game info.
 		DontDestroy.AboutGameText = Find_Scenario(DontDestroy.ScenarioChoice).MainGameDescription;

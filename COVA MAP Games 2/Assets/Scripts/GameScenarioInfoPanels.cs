@@ -22,8 +22,11 @@ public class GameScenarioInfoPanels : MonoBehaviour
     }
     void Start()
     {
-        AboutText.GetComponent<Text>().text = DontDestroy.InstructionsText;  //Pull scenario instructions text that was saved to the DoNotDestroy script.
-       
+        if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
+        {
+            AboutText.GetComponent<Text>().text = DontDestroy.InstructionsText;  //Pull scenario instructions text that was saved to the DoNotDestroy script.
+        }
+
         DontDestroy.ScenarioCounter = DontDestroy.ScenarioCounter + 1;
         
 
