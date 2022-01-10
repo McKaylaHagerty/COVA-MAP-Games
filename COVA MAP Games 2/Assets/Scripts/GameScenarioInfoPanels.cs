@@ -15,7 +15,10 @@ public class GameScenarioInfoPanels : MonoBehaviour
 
     private void Awake()
     {
-        TimerScript.PauseGame();  //Game starts paused until the scenario instructions are read and the user proceeds to the game.
+        if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
+        {
+            TimerScript.PauseGame();  //Game starts paused until the scenario instructions are read and the user proceeds to the game.
+        }
     }
     void Start()
     {
@@ -47,7 +50,7 @@ public class GameScenarioInfoPanels : MonoBehaviour
         {
             AboutTextPanel.SetActive(false);  //Set the panel with the scenario text inactive.
 
-            if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves" || DontDestroy.GameChoice == "Hazards")
+            if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
             {
                 ReadyToPlayAudioScript.ReadyToPlay();
             }

@@ -564,6 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819315781}
+  - component: {fileID: 819315782}
   m_Layer: 0
   m_Name: NewScenarioScript
   m_TagString: Untagged
@@ -586,6 +587,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819315782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819315779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113a2ee4e08855049bf0770fe5fb39b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csv: {fileID: 4900000, guid: e5e06506fc0cc99458164d7313468143, type: 3}
+  NewScenarioButtonPanel: {fileID: 1507023638}
 --- !u!1 &839524074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,9 +1658,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1631747733}
-        m_TargetAssemblyTypeName: ButtonControls, Assembly-CSharp
-        m_MethodName: AboutNextButtonValves
+      - m_Target: {fileID: 819315782}
+        m_TargetAssemblyTypeName: NewScenarioHazard, Assembly-CSharp
+        m_MethodName: PickNewScenario
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1705,6 +1720,7 @@ GameObject:
   - component: {fileID: 1894459515}
   - component: {fileID: 1894459516}
   - component: {fileID: 1894459517}
+  - component: {fileID: 1894459518}
   m_Layer: 0
   m_Name: ScoreboardScript
   m_TagString: Untagged
@@ -2015,6 +2031,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1894459518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894459512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae4873750bb6ea47be44a4d0ac0d2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 839524076}
+  CongratsText: {fileID: 219849477}
+  FailText: {fileID: 577656842}
+  FailOutOfTimeText: {fileID: 0}
+  FailDirectionsText: {fileID: 0}
+  FailTooManyTriesText: {fileID: 0}
+  TimeBonus: 0
+  TimeBonusText: {fileID: 842052160}
+  TotalScoreWithTimeBonus: 0
+  TimeBonusGameObject: {fileID: 694072164}
+  CongratsAudio: {fileID: 1894459515}
+  FailAudio: {fileID: 1894459516}
+  TimeBonusAudio: {fileID: 1894459517}
 --- !u!1 &1896745566
 GameObject:
   m_ObjectHideFlags: 0

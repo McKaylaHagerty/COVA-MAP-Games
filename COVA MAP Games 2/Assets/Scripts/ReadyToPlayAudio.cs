@@ -28,6 +28,11 @@ public class ReadyToPlayAudio : MonoBehaviour
             CountdownNumber3.SetActive(false);
             CountdownNumberGo.SetActive(false);
         }
+        if (DontDestroy.GameChoice == "Hazards")
+        {
+            StopBackGroundMusic();
+            InGameMusic.Play();
+        }
     }
     public void ReadyToPlay()
     {
@@ -36,11 +41,6 @@ public class ReadyToPlayAudio : MonoBehaviour
         if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
         {
             StartCoroutine(CountDownDelay());
-        }
-
-        if (DontDestroy.GameChoice == "Hazards")
-        {
-            InGameMusic.Play();
         }
         
     }

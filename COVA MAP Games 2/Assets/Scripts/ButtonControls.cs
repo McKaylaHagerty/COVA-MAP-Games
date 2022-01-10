@@ -21,7 +21,6 @@ public class ButtonControls : MonoBehaviour
     //Press play games to choose a level.
     public void PlayGamesButton()
     {
-
         SceneManager.LoadScene("Levels");
     }
 

@@ -42,10 +42,15 @@ public class Timer : MonoBehaviour
     public void Start()
     {
         time = 20.0f;
+        if (DontDestroy.GameChoice == "Hazards")
+        {
+            time = 5.0f;
+        }
+        Time.timeScale = 1;
 
         initialColor = text.color;
 
-        if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Hazards")
+        if (DontDestroy.GameChoice == "PPE")
         {
             CheckButtonPanel.SetActive(true);   //Check button is active to start. Will disappear when time runs out.
         }
@@ -55,7 +60,12 @@ public class Timer : MonoBehaviour
             CheckButtonPanel.SetActive(false);   //Check button is active to start. Will disappear when time runs out.
         }
 
-        NextButtonPanel.SetActive(false);    //Next button is inactive to start. Will appear when time runs out.
+        if (DontDestroy.GameChoice == "PPE" || DontDestroy.GameChoice == "Valves")
+        {
+            NextButtonPanel.SetActive(false);    //Next button is inactive to start. Will appear when time runs out.
+        }
+
+        
 
         if (DontDestroy.GameChoice == "PPE")
         {
@@ -68,7 +78,7 @@ public class Timer : MonoBehaviour
 
         //Choose time allowed based on level choice.
 
-        if(DontDestroy.LevelChoice == "Easy")
+        if (DontDestroy.LevelChoice == "Easy")
         {
             DontDestroy.timeLeft = 60.0f;
         }
@@ -86,25 +96,26 @@ public class Timer : MonoBehaviour
             medium.enabled = false;
         }
 
-        //Specific to Hazards game
-
-        else if (DontDestroy.LevelChoice == "Easy" && DontDestroy.GameChoice == "Hazards")
+        if (DontDestroy.LevelChoice == "Easy" && DontDestroy.GameChoice == "Hazards")
         {
-            DontDestroy.timeLeft = 20.0f;
+            DontDestroy.timeLeft = 15.0f;
         }
 
         else if (DontDestroy.LevelChoice == "Medium" && DontDestroy.GameChoice == "Hazards")
         {
-            DontDestroy.timeLeft = 15.0f;
+            DontDestroy.timeLeft = 10.0f;
             easy.enabled = false;
         }
 
         else if (DontDestroy.LevelChoice == "Hard" && DontDestroy.GameChoice == "Hazards")
         {
-            DontDestroy.timeLeft = 10.0f;  
+            DontDestroy.timeLeft = 5.0f;
             easy.enabled = false;
             medium.enabled = false;
         }
+
+        //Specific to Hazards game
+
     }
 
     bool Checked = false;  //Bool need to use as a condition to stop the update method.
@@ -112,7 +123,26 @@ public class Timer : MonoBehaviour
     public void Update()  //Timer counts down in seconds.
     { 
 
-        if (Time.timeSinceLevelLoad > 0.1f)
+        if (Time.timeSinceLevelLoad > 0.1f && DontDestroy.GameChoice == "Hazards")
+        {
+            DontDestroy.timeLeft -= Time.deltaTime;
+            if (DontDestroy.timeLeft <= 5.0f)
+            {
+                hard.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+
+            if (DontDestroy.timeLeft <= 10.0f)
+            {
+                medium.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+
+            if (DontDestroy.timeLeft <= 15.0f)
+            {
+                easy.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+        }
+
+        if (Time.timeSinceLevelLoad > 0.1f && DontDestroy.GameChoice == "Valves")
         {
             DontDestroy.timeLeft -= Time.deltaTime;
             if (DontDestroy.timeLeft <= 20.0f)
@@ -131,7 +161,25 @@ public class Timer : MonoBehaviour
             }
         }
 
-        
+        if (Time.timeSinceLevelLoad > 0.1f && DontDestroy.GameChoice == "PPE")
+        {
+            DontDestroy.timeLeft -= Time.deltaTime;
+            if (DontDestroy.timeLeft <= 20.0f)
+            {
+                hard.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+
+            if (DontDestroy.timeLeft <= 40.0f)
+            {
+                medium.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+
+            if (DontDestroy.timeLeft <= 60.0f)
+            {
+                easy.fillAmount -= 1.0f / time * Time.deltaTime;
+            }
+        }
+
 
         timeSecond = Mathf.CeilToInt(DontDestroy.timeLeft);
 
@@ -180,13 +228,21 @@ public class Timer : MonoBehaviour
                 }
             }
 
-            if (DontDestroy.GameChoice == "Valves" || DontDestroy.GameChoice == "Hazards")
+            if (DontDestroy.GameChoice == "Valves")
             {
                 //CheckAnswersPPEScript.CheckingAnswers();
                 Checked = true;  //So that the if condition is not met again.
                 AboutValvePanel.SetActive(false);
                 CheckButtonPanel.SetActive(false);
                 DontDestroy.NumberCorrect = 0;
+            }
+
+            if (DontDestroy.GameChoice == "Hazards")
+            {
+                //CheckAnswersPPEScript.CheckingAnswers();
+                Checked = true;  //So that the if condition is not met again.
+                DontDestroy.NumberCorrect = 0;
+                SceneManager.LoadScene("HazardsChecklist");
             }
         }
     }

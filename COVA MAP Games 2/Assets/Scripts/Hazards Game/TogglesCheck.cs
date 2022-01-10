@@ -53,8 +53,9 @@ public class TogglesCheck : MonoBehaviour
             else
             {
                 DontDestroy.NumberCorrect++;
+                print("DOOOO match");
             }
         }
-        print("DOOOO match"); 
+         
     }
 }
