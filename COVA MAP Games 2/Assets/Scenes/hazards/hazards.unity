@@ -15946,6 +15946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   boost: 0.5
   positionLerpTime: 0.7
   mouseSensitivityCurve:
@@ -16076,6 +16077,21 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38ff35000b57a104fa4cec3b81183a91, type: 3}
 --- !u!1001 &1827319406
+=======
+  cam1: {fileID: 822789296}
+  cam2: {fileID: 28723252}
+  cam3: {fileID: 1593131654}
+  cam4: {fileID: 1262608090}
+  cam5: {fileID: 2078943602}
+  cam6: {fileID: 1240306495}
+  cam7: {fileID: 503411723}
+  cam8: {fileID: 570573625}
+  cam9: {fileID: 1930512523}
+  cam10: {fileID: 1171470732}
+  cam11: {fileID: 1247218485}
+  cam12: {fileID: 135970011}
+--- !u!1001 &1935662666
+>>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
