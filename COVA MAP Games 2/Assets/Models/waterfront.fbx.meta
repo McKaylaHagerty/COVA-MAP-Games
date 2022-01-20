@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 85a4112bbf320491fba417c3c27f0367
 ModelImporter:
-  serializedVersion: 20101
+  serializedVersion: 21202
   internalIDToNameTable:
   - first:
       1: 100000
@@ -204,17 +204,168 @@ ModelImporter:
   - first:
       43: 4300024
     second: Road
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_antina
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_asphalt_45d
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_drain
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_entourage
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_road_edge
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_road_onesided
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_sand_a
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_sand_b
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_sand_b2a
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: misc_sand_top
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: seaport_atlas_01
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: seaport_atlas_02
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_crane
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_dock_side
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_concrete_a
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_concrete_b
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_concrete_c
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_concrete_d
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_concrete_e
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_door
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_door_big
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_fence
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_roof_frame
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_roof_sides
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_roof_top_a
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_roof_top_b
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_wall
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_window_big
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_window_small
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfront_warehouse_window_top
+    second: {fileID: 2100000, guid: 996d86c9278878346ac5d6555a3cd9f8, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -244,6 +395,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 1
@@ -255,6 +407,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
@@ -296,6 +449,7 @@ ModelImporter:
   animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
