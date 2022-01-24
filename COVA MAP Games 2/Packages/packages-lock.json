@@ -11,10 +11,14 @@
     },
     "com.unity.collab-proxy": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "version": "1.15.9",
 =======
       "version": "1.13.5",
 >>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
+=======
+      "version": "1.13.5",
+>>>>>>> parent of d3654a4 (fixed textures for COVA MAP Dude)
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -88,10 +92,14 @@
     },
     "com.unity.render-pipelines.core": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "version": "12.1.1",
 =======
       "version": "12.1.0",
 >>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
+=======
+      "version": "12.1.0",
+>>>>>>> parent of d3654a4 (fixed textures for COVA MAP Dude)
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -102,15 +110,20 @@
     },
     "com.unity.render-pipelines.universal": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "version": "12.1.1",
 =======
       "version": "12.1.0",
 >>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
+=======
+      "version": "12.1.0",
+>>>>>>> parent of d3654a4 (fixed textures for COVA MAP Dude)
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.5.0",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "com.unity.render-pipelines.core": "12.1.1",
         "com.unity.shadergraph": "12.1.1"
@@ -118,6 +131,10 @@
         "com.unity.render-pipelines.core": "12.1.0",
         "com.unity.shadergraph": "12.1.0"
 >>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
+=======
+        "com.unity.render-pipelines.core": "12.1.0",
+        "com.unity.shadergraph": "12.1.0"
+>>>>>>> parent of d3654a4 (fixed textures for COVA MAP Dude)
       }
     },
     "com.unity.searcher": {
@@ -138,6 +155,7 @@
     },
     "com.unity.shadergraph": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "version": "12.1.1",
       "depth": 1,
       "source": "builtin",
@@ -152,6 +170,14 @@
         "com.unity.render-pipelines.core": "12.1.0",
         "com.unity.searcher": "4.8.0"
 >>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
+=======
+      "version": "12.1.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "12.1.0",
+        "com.unity.searcher": "4.8.0"
+>>>>>>> parent of d3654a4 (fixed textures for COVA MAP Dude)
       }
     },
     "com.unity.test-framework": {
