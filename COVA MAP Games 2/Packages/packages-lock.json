@@ -10,7 +10,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
+<<<<<<< HEAD
       "version": "1.15.9",
+=======
+      "version": "1.13.5",
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -27,7 +31,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
+<<<<<<< HEAD
       "version": "3.0.10",
+=======
+      "version": "3.0.7",
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -36,7 +44,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
+<<<<<<< HEAD
       "version": "2.0.14",
+=======
+      "version": "2.0.11",
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -75,7 +87,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
+<<<<<<< HEAD
       "version": "12.1.1",
+=======
+      "version": "12.1.0",
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -85,18 +101,27 @@
       }
     },
     "com.unity.render-pipelines.universal": {
+<<<<<<< HEAD
       "version": "12.1.1",
+=======
+      "version": "12.1.0",
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.5.0",
+<<<<<<< HEAD
         "com.unity.render-pipelines.core": "12.1.1",
         "com.unity.shadergraph": "12.1.1"
+=======
+        "com.unity.render-pipelines.core": "12.1.0",
+        "com.unity.shadergraph": "12.1.0"
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       }
     },
     "com.unity.searcher": {
-      "version": "4.9.1",
+      "version": "4.9.0",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -112,12 +137,21 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
+<<<<<<< HEAD
       "version": "12.1.1",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.render-pipelines.core": "12.1.1",
         "com.unity.searcher": "4.9.1"
+=======
+      "version": "12.1.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "12.1.0",
+        "com.unity.searcher": "4.8.0"
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
       }
     },
     "com.unity.test-framework": {
@@ -141,7 +175,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.6.3",
+      "version": "1.6.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {

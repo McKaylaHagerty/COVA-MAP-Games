@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 m_EditorVersion: 2021.2.3f1
 m_EditorVersionWithRevision: 2021.2.3f1 (32358a8527b4)
+=======
+m_EditorVersion: 2021.2.0b16
+m_EditorVersionWithRevision: 2021.2.0b16 (edbc0738c91b)
+>>>>>>> parent of b26ea8c (Merge branch 'main' of https://github.com/McKaylaHagerty/COVA-MAP-Games)
