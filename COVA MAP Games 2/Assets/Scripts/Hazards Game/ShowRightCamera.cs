@@ -13,6 +13,10 @@ public class ShowRightCamera : MonoBehaviour
     public Camera cam6;
     public Camera cam7;
     public Camera cam8;
+    public Camera cam9;
+    public Camera cam10;
+    public Camera cam11;
+    public Camera cam12;
 
 
     public void Start()
@@ -33,6 +37,14 @@ public class ShowRightCamera : MonoBehaviour
         cam7.GetComponent<AudioListener>().enabled = false;
         cam8.gameObject.SetActive(false);
         cam8.GetComponent<AudioListener>().enabled = false;
+        cam9.gameObject.SetActive(false);
+        cam9.GetComponent<AudioListener>().enabled = false;
+        cam10.gameObject.SetActive(false);
+        cam10.GetComponent<AudioListener>().enabled = false;
+        cam11.gameObject.SetActive(false);
+        cam11.GetComponent<AudioListener>().enabled = false;
+        cam12.gameObject.SetActive(false);
+        cam12.GetComponent<AudioListener>().enabled = false;
 
         if (DontDestroy.ScenarioChoice.Contains("1"))
         {
@@ -77,6 +89,26 @@ public class ShowRightCamera : MonoBehaviour
         {
             cam8.gameObject.SetActive(true);
             cam8.GetComponent<AudioListener>().enabled = true;
+        }
+        if (DontDestroy.ScenarioChoice.Contains("9"))
+        {
+            cam9.gameObject.SetActive(true);
+            cam9.GetComponent<AudioListener>().enabled = true;
+        }
+        if (DontDestroy.ScenarioChoice.Contains("10"))
+        {
+            cam10.gameObject.SetActive(true);
+            cam10.GetComponent<AudioListener>().enabled = true;
+        }
+        if (DontDestroy.ScenarioChoice.Contains("11"))
+        {
+            cam11.gameObject.SetActive(true);
+            cam11.GetComponent<AudioListener>().enabled = true;
+        }
+        if (DontDestroy.ScenarioChoice.Contains("12"))
+        {
+            cam12.gameObject.SetActive(true);
+            cam12.GetComponent<AudioListener>().enabled = true;
         }
 
 
